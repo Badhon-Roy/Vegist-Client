@@ -10,7 +10,7 @@ const QualityBanner = () => {
                 backgroundPosition: "center"
             }}>
                 <div className="max-w-[1600px] mx-auto">
-                    <p className="text-center font-medium text-[#7cc000]">FRESH FROM OUR FARM</p>
+                    <p className="text-center font-medium text-[#7cc000] pt-8">FRESH FROM OUR FARM</p>
                     <h2 className="lg:text-[45px] md:text-[35px] text-[25px]  text-center font-bold">Top Organic Quality</h2>
                     <div className="lg:flex justify-between items-center gap-8 my-10">
                         <div className="flex-1">
