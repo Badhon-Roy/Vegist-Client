@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MdOutlineMenu } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
@@ -13,12 +13,70 @@ const Navbar = () => {
         setIsOpen(false);
     };
 
+
+    const [placeholderText, setPlaceholderText] = useState('');
+
+    useEffect(() => {
+      const sequences = [
+        ' Search your product. . . . . . . . . . . . . . . . . . . ',
+        ' Search by vegetables name . . . . . . . .  . .',
+        ' Search by product category . . . . . . . . . .',
+      ];
+  
+      let sequenceIndex = 0;
+      let charIndex = 0;
+      let currentSequence = sequences[sequenceIndex];
+      let timeoutId;
+  
+      const type = () => {
+        if (charIndex < currentSequence.length) {
+          setPlaceholderText((prev) => prev + currentSequence[charIndex]);
+          charIndex++;
+          timeoutId = setTimeout(type, 50);
+        } else {
+          setTimeout(() => {
+            setPlaceholderText('');
+            charIndex = 0;
+            sequenceIndex = (sequenceIndex + 1) % sequences.length;
+            currentSequence = sequences[sequenceIndex];
+            timeoutId = setTimeout(type, 50);
+          }, 500);
+        }
+      };
+  
+      type();
+  
+      return () => clearTimeout(timeoutId);
+    }, []);
+
     return (
         <>
             <div className='hidden lg:block bg-base-100 sticky top-0 z-10 shadow-[#7cc000] shadow-sm'>
                 <div className="navbar max-w-[1600px] mx-auto">
                     <div className="flex-1">
                         <img className='w-[100px]' src="https://vegina-store.myshopify.com/cdn/shop/files/logo-1.svg?v=1676488069&width=352" alt="" />
+                    </div>
+                    <div className='flex-1'>
+
+                        <form className="flex items-center border-2 border-[#7cc000] rounded-md">
+                            <input
+                                type="text"
+                                className="flex-grow px-4 py-2 w-[300px] border-none outline-none"
+                                placeholder={placeholderText}
+                            />
+                            <button
+                                type="submit"
+                                className="ml-2 px-4 py-2 bg-[#7cc000] text-white hover:bg-[#7cc000]"
+                            >
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                    <div className='flex-1 flex gap-8'>
+                        <a href="#home" className="hover:underline">Home</a>
+                        <a href="#about" className="hover:underline">About</a>
+                        <a href="#services" className="hover:underline">Services</a>
+                        <a href="#contact" className="hover:underline">Contact</a>
                     </div>
                     <div className="flex-none">
                         <div className="dropdown dropdown-end">
