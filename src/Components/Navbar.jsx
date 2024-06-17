@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MdOutlineMenu } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,36 +18,36 @@ const Navbar = () => {
     const [placeholderText, setPlaceholderText] = useState('');
 
     useEffect(() => {
-      const sequences = [
-        ' Search your product. . . . . . . . . . . . . . . . . . . ',
-        ' Search by vegetables name . . . . . . . .  . .',
-        ' Search by product category . . . . . . . . . .',
-      ];
-  
-      let sequenceIndex = 0;
-      let charIndex = 0;
-      let currentSequence = sequences[sequenceIndex];
-      let timeoutId;
-  
-      const type = () => {
-        if (charIndex < currentSequence.length) {
-          setPlaceholderText((prev) => prev + currentSequence[charIndex]);
-          charIndex++;
-          timeoutId = setTimeout(type, 50);
-        } else {
-          setTimeout(() => {
-            setPlaceholderText('');
-            charIndex = 0;
-            sequenceIndex = (sequenceIndex + 1) % sequences.length;
-            currentSequence = sequences[sequenceIndex];
-            timeoutId = setTimeout(type, 50);
-          }, 500);
-        }
-      };
-  
-      type();
-  
-      return () => clearTimeout(timeoutId);
+        const sequences = [
+            ' Search your product. . . . . . . . . . . . . . . . . . . ',
+            ' Search by vegetables name . . . . . . . .  . .',
+            ' Search by product category . . . . . . . . . .',
+        ];
+
+        let sequenceIndex = 0;
+        let charIndex = 0;
+        let currentSequence = sequences[sequenceIndex];
+        let timeoutId;
+
+        const type = () => {
+            if (charIndex < currentSequence.length) {
+                setPlaceholderText((prev) => prev + currentSequence[charIndex]);
+                charIndex++;
+                timeoutId = setTimeout(type, 50);
+            } else {
+                setTimeout(() => {
+                    setPlaceholderText('');
+                    charIndex = 0;
+                    sequenceIndex = (sequenceIndex + 1) % sequences.length;
+                    currentSequence = sequences[sequenceIndex];
+                    timeoutId = setTimeout(type, 50);
+                }, 500);
+            }
+        };
+
+        type();
+
+        return () => clearTimeout(timeoutId);
     }, []);
 
     return (
@@ -54,7 +55,9 @@ const Navbar = () => {
             <div className='hidden lg:block bg-base-100 sticky top-0 z-10 shadow-[#7cc000] shadow-sm'>
                 <div className="navbar max-w-[1600px] mx-auto">
                     <div className="flex-1">
-                        <img className='w-[100px]' src="https://vegina-store.myshopify.com/cdn/shop/files/logo-1.svg?v=1676488069&width=352" alt="" />
+                        <Link to={'/'}>
+                            <img className='w-[100px]' src="https://vegina-store.myshopify.com/cdn/shop/files/logo-1.svg?v=1676488069&width=352" alt="" />
+                        </Link>
                     </div>
                     <div className='flex-1'>
 

@@ -1,0 +1,390 @@
+[
+    {
+        "name": "Mung beans",
+        "category": "Beans",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/files/product-17-56.jpg?v=1717591468",
+        "price": 320,
+        "discount": 5,
+        "rating": 4,
+        "description": "Mung beans are small, green beans that belong to the legume family. They are a good source of protein, fiber, antioxidants, and phytonutrients.",
+        "origin": "India",
+        "nutrition": {
+            "calories": 347,
+            "protein": "24g",
+            "carbohydrates": "63g",
+            "fat": "1.2g",
+            "fiber": "16g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "12 months",
+        "color": "Green",
+        "quantity": 20,
+        "weight": 1,
+        "isNew" : false,
+        "review": [
+            {
+                "reviewer": "John Doe",
+                "comment": "Great quality beans!",
+                "rating": 5,
+                "date": "2024-06-10"
+            },
+            {
+                "reviewer": "Jane Smith",
+                "comment": "Very fresh and tasty.",
+                "rating": 4,
+                "date": "2024-06-03"
+            }
+        ]
+    },
+    {
+        "name": "Natural soyabean",
+        "category": "Beans",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/files/product-17-51.jpg?v=1717583764",
+        "price": 400,
+        "discount": 10,
+        "rating": 4.5,
+        "description": "Natural soyabeans are a great source of protein and essential nutrients.",
+        "origin": "USA",
+        "nutrition": {
+            "calories": 446,
+            "protein": "36g",
+            "carbohydrates": "30g",
+            "fat": "20g",
+            "fiber": "9g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "24 months",
+        "color": "Yellow",
+        "quantity": 15,
+        "weight": 1,
+        "isNew" : false,
+        "review": [
+            {
+                "reviewer": "John Doe",
+                "comment": "Great quality beans!",
+                "rating": 5,
+                "date": "2024-06-10"
+            },
+            {
+                "reviewer": "Jane Smith",
+                "comment": "Very fresh and tasty.",
+                "rating": 4,
+                "date": "2024-06-03"
+            }
+        ]
+    },
+    {
+        "name": "Red beans",
+        "category": "Beans",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/files/product-17-46.jpg?v=1717582560",
+        "price": 350,
+        "discount": 5,
+        "rating": 4.3,
+        "description": "Red beans are rich in protein and fiber, perfect for a healthy diet.",
+        "origin": "Brazil",
+        "nutrition": {
+            "calories": 333,
+            "protein": "22g",
+            "carbohydrates": "60g",
+            "fat": "1g",
+            "fiber": "15g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "18 months",
+        "color": "Red",
+        "quantity": 25,
+        "weight": 1,
+        "isNew" : false,
+        "review": []
+    },
+    {
+        "name": "Dry clove",
+        "category": "Beans",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/files/product-17-1_647abf21-f236-4135-89d9-17149a1e90c7.jpg?v=1717501701",
+        "price": 500,
+        "discount": 8,
+        "rating": 4.7,
+        "description": "Dry cloves are aromatic flower buds used as a spice for flavoring.",
+        "origin": "Madagascar",
+        "nutrition": {
+            "calories": 274,
+            "protein": "6g",
+            "carbohydrates": "65g",
+            "fat": "13g",
+            "fiber": "34g"
+        },
+        "storage": "Store in an airtight container.",
+        "shelf_life": "36 months",
+        "color": "Brown",
+        "quantity": 10,
+        "weight": 0.5,
+        "isNew" : false,
+        "review": []
+    },
+    {
+        "name": "Red chili",
+        "category": "Beans",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/files/product-17-26.jpg?v=1717579656",
+        "price": 200,
+        "discount": 5,
+        "rating": 4.1,
+        "description": "Red chilies are used to add heat and flavor to various dishes.",
+        "origin": "Mexico",
+        "nutrition": {
+            "calories": 282,
+            "protein": "9g",
+            "carbohydrates": "49g",
+            "fat": "14g",
+            "fiber": "32g"
+        },
+        "storage": "Store in an airtight container.",
+        "shelf_life": "24 months",
+        "color": "Red",
+        "quantity": 20,
+        "weight": 0.5,
+        "isNew" : false,
+        "review": [
+            {
+                "reviewer": "John Doe",
+                "comment": "Great quality beans!",
+                "rating": 5,
+                "date": "2024-06-10"
+            },
+            {
+                "reviewer": "Jane Smith",
+                "comment": "Very fresh and tasty.",
+                "rating": 4,
+                "date": "2024-06-03"
+            }
+        ]
+    },
+    {
+        "name": "Almonds whole",
+        "category": "Beans",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/files/product-17-42.jpg?v=1717580920",
+        "price": 800,
+        "discount": 10,
+        "rating": 4.5,
+        "description": "Whole almonds are a nutritious snack, rich in protein and healthy fats.",
+        "origin": "USA",
+        "nutrition": {
+            "calories": 575,
+            "protein": "21g",
+            "carbohydrates": "22g",
+            "fat": "49g",
+            "fiber": "12g"
+        },
+        "storage": "Store in an airtight container.",
+        "shelf_life": "12 months",
+        "color": "Brown",
+        "quantity": 10,
+        "weight": 1,
+        "isNew" : false,
+        "review": [
+            {
+                "reviewer": "John Doe",
+                "comment": "Great quality beans!",
+                "rating": 5,
+                "date": "2024-06-10"
+            },
+            {
+                "reviewer": "Jane Smith",
+                "comment": "Very fresh and tasty.",
+                "rating": 4,
+                "date": "2024-06-03"
+            }
+        ]
+    },
+    {
+        "name": "Fresh apple",
+        "category": "Fresh fruits",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/products/25.jpg?v=1660816037",
+        "price": 150,
+        "discount": 5,
+        "rating": 4.5,
+        "description": "Crisp and juicy fresh apples, perfect for a healthy snack.",
+        "origin": "USA",
+        "nutrition": {
+            "calories": 52,
+            "protein": "0.3g",
+            "carbohydrates": "14g",
+            "fat": "0.2g",
+            "fiber": "2.4g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "4 weeks",
+        "color": "Red",
+        "quantity": 10,
+        "weight": 1,
+        "isNew" : false,
+        "review": []
+    },
+    {
+        "name": "Fresh organic reachter",
+        "category": "Fresh fruits",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/products/16.jpg?v=1620642098",
+        "price": 200,
+        "discount": 0,
+        "rating": 4.7,
+        "description": "Organically grown reachter, bursting with natural flavor.",
+        "origin": "France",
+        "nutrition": {
+            "calories": 60,
+            "protein": "0.5g",
+            "carbohydrates": "15g",
+            "fat": "0.1g",
+            "fiber": "3g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "3 weeks",
+        "color": "Yellow",
+        "quantity": 12,
+        "weight": 1,
+        "isNew" : false,
+        "review": []
+    },
+    {
+        "name": "Fruits banana 100% organic",
+        "category": "Fresh fruits",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/products/14.jpg?v=1620642211&width=533",
+        "price": 100,
+        "discount": 5,
+        "rating": 4.3,
+        "description": "Delicious 100% organic bananas, rich in potassium.",
+        "origin": "Ecuador",
+        "nutrition": {
+            "calories": 89,
+            "protein": "1.1g",
+            "carbohydrates": "23g",
+            "fat": "0.3g",
+            "fiber": "2.6g"
+        },
+        "storage": "Store at room temperature.",
+        "shelf_life": "1 week",
+        "color": "Yellow",
+        "quantity": 8,
+        "weight": 1,
+        "isNew" : false,
+        "review": []
+    },
+    {
+        "name": "Vegetable tomato",
+        "category": "Fresh fruits",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/products/20.jpg?v=1620642567",
+        "price": 80,
+        "discount": 5,
+        "rating": 4.4,
+        "description": "Juicy and ripe tomatoes, perfect for salads and cooking.",
+        "origin": "Spain",
+        "nutrition": {
+            "calories": 18,
+            "protein": "0.9g",
+            "carbohydrates": "3.9g",
+            "fat": "0.2g",
+            "fiber": "1.2g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "2 weeks",
+        "color": "Red",
+        "quantity": 15,
+        "weight": 1,
+        "isNew" : true,
+        "review": []
+    },
+    {
+        "name": "Sp. red fresh guava",
+        "category": "Fresh fruits",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/products/30.jpg?v=1620642492",
+        "price": 250,
+        "discount": 10,
+        "rating": 4.6,
+        "description": "Special red guavas, known for their sweetness and health benefits.",
+        "origin": "India",
+        "nutrition": {
+            "calories": 68,
+            "protein": "2.6g",
+            "carbohydrates": "14g",
+            "fat": "1g",
+            "fiber": "5.4g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "2 weeks",
+        "color": "Red",
+        "quantity": 10,
+        "weight": 1,
+        "isNew" : false,
+        "review": []
+    },
+    {
+        "name": "Fresh organic fruit",
+        "category": "Fresh fruits",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/products/29.jpg?v=1620641842",
+        "price": 300,
+        "discount": 15,
+        "rating": 4.8,
+        "description": "A mix of fresh organic fruits, perfect for a nutritious diet.",
+        "origin": "Mixed origins",
+        "nutrition": {
+            "calories": 60,
+            "protein": "1g",
+            "carbohydrates": "15g",
+            "fat": "0.5g",
+            "fiber": "3g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "2 weeks",
+        "color": "Mixed",
+        "quantity": 10,
+        "weight": 1,
+        "isNew" : true,
+        "review": []
+    },
+    {
+        "name": "Organic coconut",
+        "category": "Fresh fruits",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/products/2.jpg?v=1620642391",
+        "price": 180,
+        "discount": 5,
+        "rating": 4.5,
+        "description": "Organic coconuts, known for their refreshing water and nutritious meat.",
+        "origin": "Sri Lanka",
+        "nutrition": {
+            "calories": 354,
+            "protein": "3.3g",
+            "carbohydrates": "15g",
+            "fat": "33g",
+            "fiber": "9g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "4 weeks",
+        "color": "Brown",
+        "quantity": 5,
+        "weight": 1,
+        "isNew" : false,
+        "review": []
+    },
+    {
+        "name": "Blackberry 100% organic",
+        "category": "Fresh fruits",
+        "image": "https://vegina-store.myshopify.com/cdn/shop/products/11.jpg?v=1660815830",
+        "price": 220,
+        "discount": 10,
+        "rating": 4.7,
+        "description": "Fresh organic blackberries, full of antioxidants and flavor.",
+        "origin": "Canada",
+        "nutrition": {
+            "calories": 43,
+            "protein": "1.4g",
+            "carbohydrates": "10g",
+            "fat": "0.5g",
+            "fiber": "5.3g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "1 week",
+        "color": "Black",
+        "quantity": 12,
+        "weight": 1,
+        "isNew" : true,
+        "review": []
+    }
+]

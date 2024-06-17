@@ -2,7 +2,7 @@ import { IoIosSend } from "react-icons/io";
 
 const Footer = () => {
     return (
-        <footer className="w-full h-full md:h-[450px] md:p-16 p-8 mt-24" style={{
+        <footer className="w-full h-full md:h-[450px] md:p-16 p-8" style={{
             backgroundImage: "url('https://vegina-store.myshopify.com/cdn/shop/files/Untitled-1_156403f7-af42-40f3-b865-200f2bc4e863.jpg?v=1614354193')",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
@@ -19,7 +19,7 @@ const Footer = () => {
                         </button>
                 </div>
                 <div>
-                    <div className="">
+                    <div >
                         <img className="w-[100px]" src="https://vegina-store.myshopify.com/cdn/shop/files/logo-1.svg?v=1676488069&width=352" alt="" />
                         <p>Tortor neque egestas augue, eu vulputate magnaTortor neque egestas augue, eu vulputate magna social-icon social-icon</p>
                     </div>
