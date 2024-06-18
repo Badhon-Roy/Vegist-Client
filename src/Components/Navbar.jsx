@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MdOutlineMenu } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -75,11 +75,11 @@ const Navbar = () => {
                             </button>
                         </form>
                     </div>
-                    <div className='flex-1 flex gap-8'>
-                        <a href="#home" className="hover:underline">Home</a>
-                        <a href="#about" className="hover:underline">About</a>
-                        <a href="#services" className="hover:underline">Services</a>
-                        <a href="#contact" className="hover:underline">Contact</a>
+                    <div className='flex-1 flex gap-8 font-bold'>
+                        <NavLink to={'/'} className={({ isActive, isPending }) => isActive ? "text-red-500 underline" : isPending ? "pending" : ""}> Home </NavLink>
+                        <NavLink to={'/about'} className={({ isActive, isPending }) => isActive ? "text-red-500 underline" : isPending ? "pending" : ""}> About Us</NavLink>
+                        <NavLink to={'/'} className={({ isActive, isPending }) => isActive ? "text-red-500 underline" : isPending ? "pending" : ""}> Services </NavLink>
+                        <NavLink to={'/'} className={({ isActive, isPending }) => isActive ? "text-red-500 underline" : isPending ? "pending" : ""}> Contact </NavLink>
                     </div>
                     <div className="flex-none">
                         <div className="dropdown dropdown-end">

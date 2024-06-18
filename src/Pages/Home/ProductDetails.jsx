@@ -23,7 +23,7 @@ const ProductDetails = () => {
         return <div>Error fetching data</div>;
     }
 
-    const { name, category, image, price, discount, rating, description, origin, nutrition = {}, storage, shelf_life, color, quantity, weight, isNew, review } = data || {};
+    const { name, category, image, price, discount, rating, description, origin, nutrition = {}, storage, shelf_life, color, quantity, weight, review } = data || {};
 
     const calculateTotalPriceWithoutDiscount = () => {
         const totalPrice = parseFloat(price);
