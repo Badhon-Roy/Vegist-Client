@@ -5,6 +5,17 @@ import { FaArrowRightLong, FaLinkedin, FaUserShield } from "react-icons/fa6";
 const About = () => {
     return (
         <div className="my-16">
+             <div className="w-full h-full p-8" style={{
+                backgroundImage: "url('https://jthemes.net/themes/html/organic/assets/images/breadcrumb/breadcrumb1.png')",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+            }}>
+                <div className="max-w-[1600px] mx-auto flex justify-center items-center gap-8">
+                    <h2 className="text-white md:text-5xl text-3xl font-bold">About Us</h2>
+                    <img className="w-[250px] md:block hidden" src="https://www.geopits.com/assets/images/bg/about-banner.png" alt="" />
+                </div>
+            </div>
             <div className="max-w-[1600px] mx-auto lg:flex justify-between gap-8 lg:p-0 p-6">
                 <div className="flex-1">
                     <img className="w-full" src="https://jthemes.net/themes/html/organic/assets/images/sales/sale9.png" alt="" />

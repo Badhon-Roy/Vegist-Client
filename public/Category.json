@@ -1,7 +1,11 @@
 [
     {
+        "category": "Fruits",
+        "image": "https://content.health.harvard.edu/wp-content/uploads/2023/04/b599a20a-a453-425a-9d2f-fa2ff8ba2776.jpg"
+    },
+    {
         "category": "Beans",
-        "image": "https://example.com/images/leafy-green.jpg"
+        "image": "https://vegina-store.myshopify.com/cdn/shop/files/product-17-51.jpg?v=1717583764"
     },
     {
         "category": "Fresh fruits",

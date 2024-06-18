@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Product from "./Product";
 
 const Products = () => {
     const { category } = useParams();
 
     const { data } = useQuery({
-        queryKey: ['categories'],
+        queryKey: ['category'],
         queryFn: async () => {
             const res = await axios.get(`http://localhost:5000/categories/${category}`)
             return res.data;
@@ -32,10 +32,18 @@ const Products = () => {
             </div>
             <div className="max-w-[1600px] mx-auto my-16">
                 <h2 className="md:text-2xl text-xl font-bold">Product of {category} ({data?.length})</h2>
-                <div className="grid grid-cols-5 gap-4 my-8">
+                <div>
                     {
-                        data?.map(product => <Product key={product?._id} product={product}></Product>)
-                    }
+                        data?.length > 0 ? <div className="grid grid-cols-5 gap-4 my-8">
+                        {
+                            data?.map(product => <Product key={product?._id} product={product}></Product>)
+                        }
+                    </div> : <div className="flex flex-col justify-center items-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbzlnvmiwgJUYAN-yiAJRDBe2m0rAVa-gyA&s" alt="" />
+                        <p className="text-2xl font-bold my-4">Sorry No product Available</p>
+                        <Link to={'/'} className="BTN">Back to Home</Link>
+                    </div>
+                     }
                 </div>
             </div>
         </div>

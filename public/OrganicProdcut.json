@@ -1,0 +1,717 @@
+[
+    {
+        "name": "Organic Carrots",
+        "category": "Vegetables",
+        "image": "https://orgboxthailand.com/wp-content/uploads/2018/05/carrot.png",
+        "price": 200,
+        "discount": 5,
+        "rating": 4.5,
+        "description": "Fresh organic carrots, rich in vitamins and minerals.",
+        "origin": "USA",
+        "nutrition": {
+            "calories": 41,
+            "protein": "0.9g",
+            "carbohydrates": "10g",
+            "fat": "0.2g",
+            "fiber": "2.8g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "12 months",
+        "color": "Orange",
+        "quantity": 10,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": []
+    },
+    {
+        "name": "Organic Apples",
+        "category": "Fruits",
+        "image": "https://biosuedtirol.com/uploads/apples_sort/biosuedtirol_pinova_detail.jpg",
+        "price": 150,
+        "discount": 8,
+        "rating": 4.7,
+        "description": "Crisp and sweet organic apples, perfect for a healthy snack.",
+        "origin": "Canada",
+        "nutrition": {
+            "calories": 52,
+            "protein": "0.3g",
+            "carbohydrates": "14g",
+            "fat": "0.2g",
+            "fiber": "2.4g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "6 months",
+        "color": "Red",
+        "quantity": 20,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": []
+    },
+    {
+        "name": "Organic Bananas",
+        "category": "Fruits",
+        "image": "https://img.freepik.com/premium-psd/organic-bananas-transparent-background_410516-119304.jpg",
+        "price": 120,
+        "discount": 0,
+        "rating": 4.8,
+        "description": "Sweet and creamy organic bananas, ideal for a quick energy boost.",
+        "origin": "Ecuador",
+        "nutrition": {
+            "calories": 89,
+            "protein": "1.1g",
+            "carbohydrates": "23g",
+            "fat": "0.3g",
+            "fiber": "2.6g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "5 days",
+        "color": "Yellow",
+        "quantity": 15,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": []
+    },
+    {
+        "name": "Organic Broccoli",
+        "category": "Vegetables",
+        "image": "https://www.earthboundfarm.com/wp-content/uploads/2024/04/ebf-organic-broccoli.jpg",
+        "price": 220,
+        "discount": 3,
+        "rating": 4.6,
+        "description": "Fresh organic broccoli, rich in vitamins and perfect for a healthy diet.",
+        "origin": "Italy",
+        "nutrition": {
+            "calories": 55,
+            "protein": "3.7g",
+            "carbohydrates": "11g",
+            "fat": "0.6g",
+            "fiber": "3.8g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "8 days",
+        "color": "Green",
+        "quantity": 12,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": []
+    },
+    {
+        "name": "Organic Spinach",
+        "category": "Vegetables",
+        "image": "https://www.gardenoflife.com/media/2017/05/organic-spinach-499x392.jpg",
+        "price": 180,
+        "discount": 7,
+        "rating": 4.4,
+        "description": "Fresh organic spinach, packed with nutrients and antioxidants.",
+        "origin": "Netherlands",
+        "nutrition": {
+            "calories": 23,
+            "protein": "2.9g",
+            "carbohydrates": "3.6g",
+            "fat": "0.4g",
+            "fiber": "2.2g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "7 days",
+        "color": "Green",
+        "quantity": 8,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": []
+    },
+    {
+        "name": "Organic Strawberries",
+        "category": "Fruits",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBIWg0I3_YlR-TTApYATObG_931oLipZVig&s",
+        "price": 300,
+        "discount": 2,
+        "rating": 4.9,
+        "description": "Juicy and sweet organic strawberries, perfect for desserts and snacks.",
+        "origin": "Spain",
+        "nutrition": {
+            "calories": 32,
+            "protein": "0.7g",
+            "carbohydrates": "7.7g",
+            "fat": "0.3g",
+            "fiber": "2g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "4 days",
+        "color": "Red",
+        "quantity": 18,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": []
+    },
+    {
+        "name": "Organic Blueberries",
+        "category": "Fruits",
+        "image": "https://www.producemarketguide.com/media/user_5q6Kv4eMkN/284/blueberries_commodity-page.png",
+        "price": 320,
+        "discount": 8,
+        "rating": 4.5,
+        "description": "Delicious organic blueberries, packed with antioxidants.",
+        "origin": "Chile",
+        "nutrition": {
+            "calories": 57,
+            "protein": "0.7g",
+            "carbohydrates": "14g",
+            "fat": "0.3g",
+            "fiber": "2.4g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "10 days",
+        "color": "Blue",
+        "quantity": 10,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": []
+    },
+    {
+        "name": "Organic Kale",
+        "category": "Vegetables",
+        "image": "https://organicfoodshare.com.au/wp-content/uploads/2016/08/kale-600x400.jpg",
+        "price": 250,
+        "discount": 7,
+        "rating": 4.6,
+        "description": "Nutritious organic kale, packed with vitamins and minerals.",
+        "origin": "USA",
+        "nutrition": {
+            "calories": 49,
+            "protein": "4.3g",
+            "carbohydrates": "8.8g",
+            "fat": "0.9g",
+            "fiber": "2g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "10 days",
+        "color": "Green",
+        "quantity": 10,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Alice",
+                "rating": 5,
+                "comment": "Absolutely love this kale. So fresh and tasty!"
+            },
+            {
+                "username": "Bob",
+                "rating": 4,
+                "comment": "Good quality, but a bit pricey."
+            }
+        ]
+    },
+    {
+        "name": "Organic Mangoes",
+        "category": "Fruits",
+        "image": "https://assets.thehansindia.com/h-upload/2021/05/10/1075475-mangos.webp",
+        "price": 300,
+        "discount": 6,
+        "rating": 4.8,
+        "description": "Sweet and juicy organic mangoes, perfect for desserts.",
+        "origin": "Mexico",
+        "nutrition": {
+            "calories": 60,
+            "protein": "0.8g",
+            "carbohydrates": "15g",
+            "fat": "0.4g",
+            "fiber": "1.6g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "5 days",
+        "color": "Yellow",
+        "quantity": 15,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Charlie",
+                "rating": 5,
+                "comment": "These mangoes are the best I've ever had!"
+            },
+            {
+                "username": "Dana",
+                "rating": 4,
+                "comment": "Very tasty but they ripened too quickly."
+            }
+        ]
+    },
+    {
+        "name": "Organic Spinach",
+        "category": "Vegetables",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0YMnUz52b20pHzPLPq1COyepZPQ1aWRpCxA&s",
+        "price": 180,
+        "discount": 8,
+        "rating": 4.4,
+        "description": "Fresh organic spinach, perfect for salads and smoothies.",
+        "origin": "Canada",
+        "nutrition": {
+            "calories": 23,
+            "protein": "2.9g",
+            "carbohydrates": "3.6g",
+            "fat": "0.4g",
+            "fiber": "2.2g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "7 days",
+        "color": "Green",
+        "quantity": 8,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Eve",
+                "rating": 5,
+                "comment": "Spinach is very fresh and flavorful."
+            },
+            {
+                "username": "Frank",
+                "rating": 3,
+                "comment": "It was okay, but I've had better."
+            }
+        ]
+    },
+    {
+        "name": "Organic Oranges",
+        "category": "Fruits",
+        "image": "https://produits.bienmanger.com/33285-0w470h470_Organic_Fresh_Oranges_From_Italy_New_Hall.jpg",
+        "price": 220,
+        "discount": 4,
+        "rating": 4.7,
+        "description": "Juicy organic oranges, rich in vitamin C.",
+        "origin": "Spain",
+        "nutrition": {
+            "calories": 47,
+            "protein": "0.9g",
+            "carbohydrates": "12g",
+            "fat": "0.1g",
+            "fiber": "2.4g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "14 days",
+        "color": "Orange",
+        "quantity": 20,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Grace",
+                "rating": 5,
+                "comment": "Absolutely love these oranges, so sweet and fresh!"
+            },
+            {
+                "username": "Hank",
+                "rating": 4,
+                "comment": "Very good, but a bit too small for the price."
+            }
+        ]
+    },
+    {
+        "name": "Organic Bell Peppers",
+        "category": "Vegetables",
+        "image": "https://organiclivestockandcrops.org/wp-content/uploads/2018/06/organic-bell-pepper-1.jpg",
+        "price": 240,
+        "discount": 3,
+        "rating": 4.5,
+        "description": "Crisp and colorful organic bell peppers, great for cooking.",
+        "origin": "Netherlands",
+        "nutrition": {
+            "calories": 31,
+            "protein": "1g",
+            "carbohydrates": "6g",
+            "fat": "0.3g",
+            "fiber": "2.1g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "10 days",
+        "color": "Red, Yellow, Green",
+        "quantity": 12,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Ivy",
+                "rating": 5,
+                "comment": "Excellent quality, very fresh and crunchy."
+            },
+            {
+                "username": "Jack",
+                "rating": 4,
+                "comment": "Good peppers, but a bit expensive."
+            }
+        ]
+    },
+    {
+        "name": "Organic Blueberries",
+        "category": "Fruits",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9qfeVmrHXRiuawekDSwXBmRrjdKs-rJs8hQ&s",
+        "price": 320,
+        "discount": 8,
+        "rating": 4.5,
+        "description": "Delicious organic blueberries, packed with antioxidants.",
+        "origin": "Chile",
+        "nutrition": {
+            "calories": 57,
+            "protein": "0.7g",
+            "carbohydrates": "14g",
+            "fat": "0.3g",
+            "fiber": "2.4g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "10 days",
+        "color": "Blue",
+        "quantity": 10,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Liam",
+                "rating": 5,
+                "comment": "These blueberries are amazing, so fresh and sweet."
+            },
+            {
+                "username": "Mia",
+                "rating": 4,
+                "comment": "Very good quality, but a bit pricey."
+            }
+        ]
+    },
+    {
+        "name": "Organic Cucumbers",
+        "category": "Vegetables",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHpiTYQzNeEZfNjcJTCG2-fZzn9KBrOvZ3dA&s",
+        "price": 190,
+        "discount": 2,
+        "rating": 4.4,
+        "description": "Fresh and crunchy organic cucumbers, perfect for salads.",
+        "origin": "Turkey",
+        "nutrition": {
+            "calories": 16,
+            "protein": "0.7g",
+            "carbohydrates": "3.6g",
+            "fat": "0.1g",
+            "fiber": "0.5g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "14 days",
+        "color": "Green",
+        "quantity": 18,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Noah",
+                "rating": 5,
+                "comment": "Perfect for my salads, very fresh and crisp."
+            },
+            {
+                "username": "Olivia",
+                "rating": 4,
+                "comment": "Good quality, but a bit small."
+            }
+        ]
+    },
+    {
+        "name": "Organic Strawberries",
+        "category": "Fruits",
+        "image": "https://media.istockphoto.com/id/579754040/photo/red-berry-strawberry.jpg?s=612x612&w=0&k=20&c=o8m7UEe6NEVqyTO1bEZU5A6fKl3Zu43NLQ23JrlLQgM=",
+        "price": 400,
+        "discount": 8,
+        "rating": 4.9,
+        "description": "Sweet and juicy organic strawberries, perfect for desserts.",
+        "origin": "Spain",
+        "nutrition": {
+            "calories": 32,
+            "protein": "0.7g",
+            "carbohydrates": "7.7g",
+            "fat": "0.3g",
+            "fiber": "2g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "7 days",
+        "color": "Red",
+        "quantity": 20,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Olivia",
+                "rating": 5,
+                "comment": "The best strawberries I've ever had!"
+            },
+            {
+                "username": "Emma",
+                "rating": 4,
+                "comment": "Very sweet and fresh, but a bit expensive."
+            }
+        ]
+    },
+    {
+        "name": "Organic Broccoli",
+        "category": "Vegetables",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIgSn9tFA0JCcnlrczuk1Ep2eDeTpvrGy8QQ&s",
+        "price": 220,
+        "discount": 6,
+        "rating": 4.5,
+        "description": "Fresh organic broccoli, great for steaming and salads.",
+        "origin": "Italy",
+        "nutrition": {
+            "calories": 55,
+            "protein": "3.7g",
+            "carbohydrates": "11g",
+            "fat": "0.6g",
+            "fiber": "2.6g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "10 days",
+        "color": "Green",
+        "quantity": 15,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Ethan",
+                "rating": 5,
+                "comment": "Really fresh and healthy. Will buy again."
+            },
+            {
+                "username": "Sophia",
+                "rating": 4,
+                "comment": "Good quality, but I've had better."
+            }
+        ]
+    },
+    {
+        "name": "Organic Bananas",
+        "category": "Fruits",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZdYAUXvlwNIrC2A_4oIhFUyBtKtLNHm0buQ&s",
+        "price": 150,
+        "discount": 4,
+        "rating": 4.7,
+        "description": "Sweet organic bananas, perfect for snacks and smoothies.",
+        "origin": "Ecuador",
+        "nutrition": {
+            "calories": 89,
+            "protein": "1.1g",
+            "carbohydrates": "23g",
+            "fat": "0.3g",
+            "fiber": "2.6g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "7 days",
+        "color": "Yellow",
+        "quantity": 30,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Liam",
+                "rating": 5,
+                "comment": "These bananas are very tasty and fresh."
+            },
+            {
+                "username": "Ava",
+                "rating": 4,
+                "comment": "Good quality, but ripen quickly."
+            }
+        ]
+    },
+    {
+        "name": "Organic Tomatoes",
+        "category": "Vegetables",
+        "image": "https://media.istockphoto.com/id/1143082791/photo/fresh-cherry-tomatoes-isolated-on-white.jpg?s=612x612&w=0&k=20&c=Pa-lx4uJuBW1ritjRqTn6nLoDgBzkD6eyP0LdYmHin4=",
+        "price": 180,
+        "discount": 3,
+        "rating": 4.6,
+        "description": "Fresh organic tomatoes, great for salads and cooking.",
+        "origin": "Mexico",
+        "nutrition": {
+            "calories": 18,
+            "protein": "0.9g",
+            "carbohydrates": "3.9g",
+            "fat": "0.2g",
+            "fiber": "1.2g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "14 days",
+        "color": "Red",
+        "quantity": 25,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Noah",
+                "rating": 5,
+                "comment": "Very fresh and juicy tomatoes. Perfect for salads."
+            },
+            {
+                "username": "Isabella",
+                "rating": 4,
+                "comment": "Good quality, but some were overripe."
+            }
+        ]
+    },
+    {
+        "name": "Organic Avocados",
+        "category": "Fruits",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwaNXdVT-4kYnxgSUsWb-bLCLMHpu2yUUU_g&s",
+        "price": 350,
+        "discount": 2,
+        "rating": 4.8,
+        "description": "Creamy organic avocados, perfect for guacamole and salads.",
+        "origin": "Peru",
+        "nutrition": {
+            "calories": 160,
+            "protein": "2g",
+            "carbohydrates": "9g",
+            "fat": "15g",
+            "fiber": "7g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "5 days",
+        "color": "Green",
+        "quantity": 12,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "James",
+                "rating": 5,
+                "comment": "These avocados are perfect. So creamy and fresh."
+            },
+            {
+                "username": "Charlotte",
+                "rating": 4,
+                "comment": "Great quality, but a bit expensive."
+            }
+        ]
+    },
+    {
+        "name": "Organic Grapes",
+        "category": "Fruits",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMjCgWxAL-9Ph2Ym2WRsbGY7b9WmtKe9pG6Q&s",
+        "price": 280,
+        "discount": 5,
+        "rating": 4.5,
+        "description": "Sweet and juicy organic grapes, perfect for snacking.",
+        "origin": "Italy",
+        "nutrition": {
+            "calories": 69,
+            "protein": "0.7g",
+            "carbohydrates": "18g",
+            "fat": "0.2g",
+            "fiber": "0.9g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "7 days",
+        "color": "Purple",
+        "quantity": 20,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Oliver",
+                "rating": 5,
+                "comment": "Very sweet and fresh grapes. Perfect for snacking."
+            },
+            {
+                "username": "Amelia",
+                "rating": 4,
+                "comment": "Good quality, but some were a bit sour."
+            }
+        ]
+    },
+    {
+        "name": "Organic Zucchini",
+        "category": "Vegetables",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5JwCrHHAlP93t2Trt1Fb1ju23dGplLTWkJQ&s",
+        "price": 160,
+        "discount": 1,
+        "rating": 4.3,
+        "description": "Fresh organic zucchini, great for grilling and salads.",
+        "origin": "USA",
+        "nutrition": {
+            "calories": 17,
+            "protein": "1.2g",
+            "carbohydrates": "3.1g",
+            "fat": "0.3g",
+            "fiber": "1g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "10 days",
+        "color": "Green",
+        "quantity": 18,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Benjamin",
+                "rating": 5,
+                "comment": "Very fresh and versatile. Great for grilling."
+            },
+            {
+                "username": "Mia",
+                "rating": 3,
+                "comment": "Good quality, but a bit small."
+            }
+        ]
+    },
+    {
+        "name": "Organic Pineapple",
+        "category": "Fruits",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl5aM6MLs8oGWh3I7IhNt3HsfEe-W3_UIjIg&s",
+        "price": 400,
+        "discount": 8,
+        "rating": 4.7,
+        "description": "Sweet and tangy organic pineapple, perfect for snacks and desserts.",
+        "origin": "Costa Rica",
+        "nutrition": {
+            "calories": 50,
+            "protein": "0.5g",
+            "carbohydrates": "13g",
+            "fat": "0.1g",
+            "fiber": "1.4g"
+        },
+        "storage": "Store in a cool, dry place.",
+        "shelf_life": "7 days",
+        "color": "Yellow",
+        "quantity": 10,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": true,
+        "review": [
+            {
+                "username": "Lucas",
+                "rating": 5,
+                "comment": "The best pineapple I've ever had. So sweet and fresh."
+            },
+            {
+                "username": "Harper",
+                "rating": 4,
+                "comment": "Great quality, but a bit pricey."
+            }
+        ]
+    }
+]
