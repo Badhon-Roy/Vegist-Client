@@ -1,7 +1,49 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const SignIn = () => {
+
+  const {googleAuth} = useContext(AuthContext)
+
+
+  const handleGoogleLogIn = () => {
+    googleAuth()
+      .then(res => {
+        if (res.user) {
+          toast.success('👦🏻 Sing In successfully!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        toast.error('🚨 Error creating user!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      })
+  }
+
+
+
   return (
     <div className="my-16 max-w-[900px] mx-auto">
       <h2 className="text-center text-3xl font-bold">Sign In</h2>
@@ -19,10 +61,10 @@ const SignIn = () => {
             <button className="mt-6 border-2 border-[#7cc000] rounded-lg py-2 w-full text-xl font-medium hover:bg-[#7cc000]">Sign In</button>
             <h2 className="mt-2 text-right pr-4">Don't have an account <Link to='/singUp' className="underline font-bold text-[#7cc000]">Sing Up</Link>
             </h2>
-            <div>
-              <button className="border btn mt-8"><img className="w-[30px]" src="https://static.vecteezy.com/system/resources/previews/022/613/027/non_2x/google-icon-logo-symbol-free-png.png" alt="" /> Continue with Google</button>
-            </div>
           </form>
+          <div>
+            <button onClick={handleGoogleLogIn} className="border btn mt-8"><img className="w-[30px]" src="https://static.vecteezy.com/system/resources/previews/022/613/027/non_2x/google-icon-logo-symbol-free-png.png" alt="" /> Continue with Google</button>
+          </div>
         </div>
         <div className="flex-1">
           <img className="w-full h-full object-cover" src="https://cdn.dribbble.com/users/1172503/screenshots/4505740/login-form.gif" alt="" />

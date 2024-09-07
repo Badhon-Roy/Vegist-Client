@@ -6,7 +6,7 @@ import { Bounce, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, googleAuth } = useContext(AuthContext)
     const handleSingUp = e => {
         e.preventDefault();
         const form = e.target;
@@ -19,7 +19,7 @@ const SignUp = () => {
             .then(result => {
                 console.log(result.user);
                 const createdAt = result?.user?.metadata?.creationTime;
-                const userInfo = { name, photoURL, email, password , createdAt };
+                const userInfo = { name, photoURL, email, password, createdAt };
                 axios.post('http://localhost:5000/user', userInfo)
                     .then(res => {
                         console.log(res.data.insertedId);
@@ -78,7 +78,38 @@ const SignUp = () => {
             });
     }
 
-    const handleGoogleLogIn = 
+    const handleGoogleLogIn = () => {
+        googleAuth()
+            .then(res => {
+                if(res.user){
+                    toast.success('👦🏻 Sing In successfully!', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        transition: Bounce,
+                    });
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error('🚨 Error creating user!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+            })
+    }
 
     return (
 
@@ -114,10 +145,10 @@ const SignUp = () => {
 
                         <h2 className="mt-2 text-right pr-4">Already have an account <Link to='/signIn' className="underline font-bold text-[#7cc000]">Sing In</Link>
                         </h2>
-                        <div>
-                            <button onClick={handleGoogleLogIn} className="border btn mt-8"><img className="w-[30px]" src="https://static.vecteezy.com/system/resources/previews/022/613/027/non_2x/google-icon-logo-symbol-free-png.png" alt="" /> Continue with Google</button>
-                        </div>
                     </form>
+                    <div>
+                        <button onClick={handleGoogleLogIn} className="border btn mt-8"><img className="w-[30px]" src="https://static.vecteezy.com/system/resources/previews/022/613/027/non_2x/google-icon-logo-symbol-free-png.png" alt="" /> Continue with Google</button>
+                    </div>
                 </div>
                 <div className="flex-1 flex justify-center items-center">
                     <img className="w-full " src="https://cdna.artstation.com/p/assets/images/images/027/682/158/original/liz-gross-signup.gif?1592246526" alt="" />
