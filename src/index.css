@@ -13,3 +13,28 @@ body{
     font-size: 18px;
 
 }
+
+@layer components {
+    .underline-animation {
+      position: relative;
+      display: inline-block;
+    }
+  
+    .underline-animation::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: -1px; /* Adjust the position as needed */
+      left: 0;
+      background-color: #7cc000; /* Match the color to your active state */
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+  
+    .underline-animation:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }

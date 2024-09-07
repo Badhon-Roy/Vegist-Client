@@ -16,7 +16,7 @@ const About = () => {
                     <img className="w-[250px] md:block hidden" src="https://www.geopits.com/assets/images/bg/about-banner.png" alt="" />
                 </div>
             </div>
-            <div className="max-w-[1600px] mx-auto lg:flex justify-between gap-8 lg:p-0 p-6">
+            <div className="max-w-[1600px] mx-auto lg:flex justify-between gap-8 lg:p-0 p-6 my-8">
                 <div className="flex-1">
                     <img className="w-full" src="https://jthemes.net/themes/html/organic/assets/images/sales/sale9.png" alt="" />
                 </div>

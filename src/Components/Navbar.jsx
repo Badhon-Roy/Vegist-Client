@@ -76,12 +76,37 @@ const Navbar = () => {
                         </form>
                     </div>
                     <div className='flex-1 flex gap-8 font-bold'>
-                        <NavLink to={'/'} className={({ isActive, isPending }) => isActive ? "text-red-500 underline" : isPending ? "pending" : ""}> Home </NavLink>
-                        <NavLink to={'/about'} className={({ isActive, isPending }) => isActive ? "text-red-500 underline" : isPending ? "pending" : ""}> About Us</NavLink>
-                        <NavLink to={'/'} className={({ isActive, isPending }) => isActive ? "text-red-500 underline" : isPending ? "pending" : ""}> Services </NavLink>
-                        <NavLink to={'/'} className={({ isActive, isPending }) => isActive ? "text-red-500 underline" : isPending ? "pending" : ""}> Contact </NavLink>
+                        <NavLink
+                            to="/"
+                            className={({ isActive, isPending }) =>
+                                `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                            }
+                        >
+                            Home
+                        </NavLink>
+                        <NavLink
+                            to="/about"
+                            className={({ isActive, isPending }) =>
+                                `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                            }
+                        >
+                            About
+                        </NavLink>
                     </div>
-                    <div className="flex-none">
+
+
+                    <div className='font-bold'>
+                        <NavLink
+                            to="/signIn"
+                            className={({ isActive, isPending }) =>
+                                `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                            }
+                        >
+                            Sing In
+                        </NavLink>
+                    </div>
+
+                    {/* <div className="flex-none">
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                                 <div className="indicator">
@@ -116,7 +141,8 @@ const Navbar = () => {
                                 <li><a>Logout</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
+
                 </div>
             </div>
             <div className="relative lg:hidden">

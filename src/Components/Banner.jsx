@@ -10,7 +10,7 @@ const Banner = () => {
                 backgroundPosition: "center"
             }}>
                 <div className="max-w-[1600px] mx-auto">
-                    <div className="md:max-w-[50%]">
+                <div className="md:max-w-[50%]">
                         <div className="bg-no-repeat h-[50px] w-full" style={{ 
                             backgroundImage: "url('https://jthemes.net/themes/html/organic/assets/images/shapes/shape2.png')",
                             backgroundRepeat: "no-repeat"
