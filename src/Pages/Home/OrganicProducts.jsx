@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useAllProducts from "../../Shared/useAllProducts";
 import OrganicProduct from "./OrganicProduct";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Helmet } from "react-helmet";
 
 
 function shuffleArray(array) {
@@ -16,10 +17,13 @@ const OrganicProducts = () => {
     const { data } = useAllProducts();
 
     const shuffledData = data ? shuffleArray([...data]) : [];
-    const newProducts = shuffledData.filter(product => product.isOrganicProduct).slice(0, 9);
+    const newProducts = shuffledData?.filter(product => product.isOrganicProduct).slice(0, 9);
 
     return (
         <div className="max-w-[1600px] mx-auto p-4">
+            <Helmet>
+                <title>Vegist || Good Organic Product</title>
+            </Helmet>
             <div className="my-16 lg:p-24 p-4 bg-white shadow-2xl rounded-3xl lg:w-3/4 mx-auto">
                 <div className="text-center mb-8">
                     <p className="text-[#7cc000] text-sm">FRESH FROM OUR FARM </p>
@@ -27,8 +31,8 @@ const OrganicProducts = () => {
                 </div>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
                     {
-                        newProducts.map(product => (
-                            <OrganicProduct key={product._id} product={product}></OrganicProduct>
+                        newProducts?.map(product => (
+                            <OrganicProduct key={product?._id} product={product}></OrganicProduct>
                         ))
                     }
                 </div>

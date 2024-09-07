@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 import { FaCheck } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { useParams } from "react-router-dom";
@@ -34,18 +35,21 @@ const ProductDetails = () => {
     };
 
 
-    const handleAddToCart = ()=>{
+    const handleAddToCart = () => {
         Swal.fire({
             position: "top-end",
             icon: "success",
             title: "Your work has been saved",
             showConfirmButton: false,
             timer: 1500
-          });
+        });
     }
 
     return (
         <div>
+            <Helmet>
+                <title>Vegist || {name} Details</title>
+            </Helmet>
             <div className="w-full h-full md:p-16 p-4" style={{
                 backgroundImage: "url('https://jthemes.net/themes/html/organic/assets/images/backgrounds/bg17.png')",
                 backgroundRepeat: "no-repeat",

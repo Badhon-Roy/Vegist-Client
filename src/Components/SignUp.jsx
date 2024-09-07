@@ -4,6 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import { Bounce, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
     const { createUser, googleAuth } = useContext(AuthContext)
@@ -81,7 +82,7 @@ const SignUp = () => {
     const handleGoogleLogIn = () => {
         googleAuth()
             .then(res => {
-                if(res.user){
+                if (res.user) {
                     toast.success('👦🏻 Sing In successfully!', {
                         position: "top-center",
                         autoClose: 5000,
@@ -114,6 +115,9 @@ const SignUp = () => {
     return (
 
         <div className="my-16 max-w-[900px] mx-auto">
+            <Helmet>
+                <title>Vegist || Sing Up</title>
+            </Helmet>
             <h2 className="text-center text-3xl font-bold">Please Sign Up</h2>
             <div className="border-2 border-[#f5ab1e]  flex justify-between gap-10 shadow-lg shadow-[#7cc000] rounded-lg mt-10">
                 <div className="flex-1 p-10">

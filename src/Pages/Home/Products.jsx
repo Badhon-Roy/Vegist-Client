@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Product from "./Product";
+import { Helmet } from "react-helmet";
 
 const Products = () => {
     const { category } = useParams();
@@ -16,7 +17,10 @@ const Products = () => {
 
     return (
         <div>
-            <div className="w-full h-full md:h-[200px] md:p-16 p-8" style={{ 
+            <Helmet>
+                <title>Vegist || {category} Products</title>
+            </Helmet>
+            <div className="w-full h-full md:h-[200px] md:p-16 p-8" style={{
                 backgroundImage: "url('https://vegina-store.myshopify.com/cdn/shop/files/dealbanner3_89856af2-8887-49a4-a5c4-a936151b995c.jpg?v=1614354194')",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
@@ -24,9 +28,9 @@ const Products = () => {
             }}>
                 <div className="max-w-[1600px] mx-auto pl-10">
                     <div className="md:max-w-[50%]">
-                       <h2 className="text-[#7cc000] font-medium">Fresh and Organic
-                        <br /> <span className="text-4xl font-mono font-bold">{category}</span>
-                       </h2>
+                        <h2 className="text-[#7cc000] font-medium">Fresh and Organic
+                            <br /> <span className="text-4xl font-mono font-bold">{category}</span>
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -35,15 +39,15 @@ const Products = () => {
                 <div>
                     {
                         data?.length > 0 ? <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-4 my-8">
-                        {
-                            data?.map(product => <Product key={product?._id} product={product}></Product>)
-                        }
-                    </div> : <div className="flex flex-col justify-center items-center">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbzlnvmiwgJUYAN-yiAJRDBe2m0rAVa-gyA&s" alt="" />
-                        <p className="text-2xl font-bold my-4">Sorry No product Available</p>
-                        <Link to={'/'} className="BTN">Back to Home</Link>
-                    </div>
-                     }
+                            {
+                                data?.map(product => <Product key={product?._id} product={product}></Product>)
+                            }
+                        </div> : <div className="flex flex-col justify-center items-center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbzlnvmiwgJUYAN-yiAJRDBe2m0rAVa-gyA&s" alt="" />
+                            <p className="text-2xl font-bold my-4">Sorry No product Available</p>
+                            <Link to={'/'} className="BTN">Back to Home</Link>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

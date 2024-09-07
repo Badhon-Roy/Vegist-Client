@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { BiSupport } from "react-icons/bi";
 import { FaExchangeAlt, FaFacebookSquare, FaShippingFast, FaTwitterSquare } from "react-icons/fa";
 import { FaArrowRightLong, FaLinkedin, FaUserShield } from "react-icons/fa6";
@@ -5,7 +6,10 @@ import { FaArrowRightLong, FaLinkedin, FaUserShield } from "react-icons/fa6";
 const About = () => {
     return (
         <div className="my-16">
-             <div className="w-full h-full p-8" style={{
+            <Helmet>
+                <title>Vegist || About Us</title>
+            </Helmet>
+            <div className="w-full h-full p-8" style={{
                 backgroundImage: "url('https://jthemes.net/themes/html/organic/assets/images/breadcrumb/breadcrumb1.png')",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",

@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { MdOutlineMenu } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
+import { Bounce, toast } from 'react-toastify';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const { user ,logOut} = useContext(AuthContext)
 
     const toggleDrawer = () => {
         setIsOpen(!isOpen);
@@ -49,6 +53,24 @@ const Navbar = () => {
 
         return () => clearTimeout(timeoutId);
     }, []);
+
+    const handleSignOut = ()=>{
+        logOut()
+        .then(() =>{
+            toast.success('👋 Sing Out successfully!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        })
+    }
+
     return (
         <>
             <div className='hidden lg:block bg-base-100 sticky top-0 z-40 shadow-[#7cc000] shadow-sm'>
@@ -94,16 +116,49 @@ const Navbar = () => {
                     </div>
 
 
-                    <div className='font-bold'>
-                        <NavLink
-                            to="/signIn"
-                            className={({ isActive, isPending }) =>
-                                `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
-                            }
-                        >
-                            Sing In
-                        </NavLink>
-                    </div>
+                    {
+                        user && user?.email ? <div>
+
+
+
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img
+                                            alt={user?.displayName}
+                                            src={user?.photoURL} />
+                                    </div>
+                                </div>
+                                <ul
+                                    tabIndex={0}
+                                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                    <li>
+                                        <a className="justify-between">
+                                            Profile
+                                            <span className="badge">New</span>
+                                        </a>
+                                    </li>
+                                    <li><a>Settings</a></li>
+                                    <li><button onClick={handleSignOut}>Sing out</button></li>
+                                </ul>
+                            </div>
+
+
+
+
+
+
+                        </div> : <div className='font-bold'>
+                            <NavLink
+                                to="/signIn"
+                                className={({ isActive, isPending }) =>
+                                    `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                                }
+                            >
+                                Sing In
+                            </NavLink>
+                        </div>
+                    }
 
                     {/* <div className="flex-none">
                         <div className="dropdown dropdown-end">
