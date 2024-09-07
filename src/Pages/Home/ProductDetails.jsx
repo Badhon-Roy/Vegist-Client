@@ -3,6 +3,7 @@ import axios from "axios";
 import { FaCheck } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -10,7 +11,7 @@ const ProductDetails = () => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['categories', id],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/products/${id}`)
+            const res = await axios.get(`https://vegist-server.vercel.app/products/${id}`)
             return res.data;
         }
     });
@@ -32,6 +33,17 @@ const ProductDetails = () => {
         return totalPrice - discountedAmount;
     };
 
+
+    const handleAddToCart = ()=>{
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500
+          });
+    }
+
     return (
         <div>
             <div className="w-full h-full md:p-16 p-4" style={{
@@ -43,7 +55,7 @@ const ProductDetails = () => {
                 <div className="relative max-w-[1600px] mx-auto border-2 shadow-2xl p-8 rounded-lg bg-opacity-10 bg-gray-100 backdrop-filter backdrop-blur-lg">
                     <div className="relative lg:flex justify-between items-center gap-10">
                         <div className="flex-1 flex justify-center">
-                            <img className="w-full h-full rounded-3xl border border-[#7cc000]" src={image} alt={name} />
+                            <img className="md:w-[500px] w-[300px] h-full rounded-3xl border border-[#7cc000]" src={image} alt={name} />
                         </div>
                         <div className="flex-1 lg:mt-0 mt-8">
                             <div className="flex items-center gap-4 ">
@@ -95,7 +107,7 @@ const ProductDetails = () => {
 
                             <h2 className="text-[#7cc000] md:text-2xl text-xl my-2">Nutrition of product:</h2>
                             <div className="join join-vertical w-full">
-                                {Object.keys(nutrition).map((key, index) => (
+                                {Object.keys(nutrition)?.map((key, index) => (
                                     <div className="collapse collapse-arrow join-item border border-base-300" key={index}>
                                         <input type="radio" name="my-accordion-4" defaultChecked={index === 0} />
                                         <div className="collapse-title text-xl font-medium">
@@ -107,7 +119,17 @@ const ProductDetails = () => {
                                     </div>
                                 ))}
                             </div>
-                            <button className="BTN w-full mt-4">Add To Cart</button>
+                            <div className="md:flex gap-4">
+                                <button onClick={handleAddToCart} className="bg-[#7cc000] rounded-[30px] w-full mt-4 text-xl text-white px-4 py-1 flex justify-center items-center gap-4">
+                                    <img className="w-[50px] object-cover" src="https://img.pikbest.com/origin/10/06/36/28TpIkbEsTfqc.png!sw800" alt="" /> <span>Add To Cart</span>
+                                </button>
+                                <button className="bg-[#7cc000] rounded-[30px] w-full mt-4 text-white text-xl px-4 py-4 flex justify-center items-center gap-4">
+                                    <img className="w-[30px] object-cover" src="https://www.freeiconspng.com/thumbs/favorite-icon/heart-favorite-icon-5.png" alt="" /> <span>Favorite</span>
+                                </button>
+                                <button className="bg-[#7cc000] rounded-[30px] w-full mt-4 text-xl text-white px-4 py-1 flex justify-center items-center gap-4">
+                                    <img className="w-[50px] object-cover" src="https://static.vecteezy.com/system/resources/previews/012/443/044/non_2x/online-food-order-grocery-delivery-woman-shop-at-an-online-store-the-product-catalog-on-the-web-browser-page-stay-at-home-concept-quarantine-or-self-isolation-png.png" alt="" /> <span>Buy Now</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

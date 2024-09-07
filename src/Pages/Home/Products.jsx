@@ -9,7 +9,7 @@ const Products = () => {
     const { data } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/categories/${category}`)
+            const res = await axios.get(`https://vegist-server.vercel.app/categories/${category}`)
             return res.data;
         }
     })
@@ -30,11 +30,11 @@ const Products = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-[1600px] mx-auto my-16">
+            <div className="max-w-[1600px] mx-auto my-16 px-4">
                 <h2 className="md:text-2xl text-xl font-bold">Product of {category} ({data?.length})</h2>
                 <div>
                     {
-                        data?.length > 0 ? <div className="grid grid-cols-5 gap-4 my-8">
+                        data?.length > 0 ? <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-4 my-8">
                         {
                             data?.map(product => <Product key={product?._id} product={product}></Product>)
                         }

@@ -49,10 +49,9 @@ const Navbar = () => {
 
         return () => clearTimeout(timeoutId);
     }, []);
-
     return (
         <>
-            <div className='hidden lg:block bg-base-100 sticky top-0 z-10 shadow-[#7cc000] shadow-sm'>
+            <div className='hidden lg:block bg-base-100 sticky top-0 z-40 shadow-[#7cc000] shadow-sm'>
                 <div className="navbar max-w-[1600px] mx-auto">
                     <div className="flex-1">
                         <Link to={'/'}>
@@ -145,10 +144,10 @@ const Navbar = () => {
 
                 </div>
             </div>
-            <div className="relative lg:hidden">
+            <div className="relative lg:hidden z-40">
                 <button
                     onClick={toggleDrawer}
-                    className="fixed top-4 right-4 z-50 p-2 bg-blue-600 text-white rounded-full"
+                    className="fixed top-4 right-4 z-40 p-2 bg-blue-600 text-white rounded-full"
                 >
                     <MdOutlineMenu />
                 </button>
@@ -163,35 +162,25 @@ const Navbar = () => {
                     >
                         <IoMdCloseCircleOutline />
                     </button>
-                    <nav className="mt-16 space-y-4">
-                        <a
-                            href="#home"
+                    <nav className="mt-16 space-y-4 flex flex-col text-start px-4">
+                        <NavLink
+                            to="/"
                             onClick={handleNavClick}
-                            className="block py-2 px-4 text-lg text-gray-700 hover:bg-gray-200"
+                            className={({ isActive, isPending }) =>
+                                `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                            }
                         >
                             Home
-                        </a>
-                        <a
-                            href="#about"
+                        </NavLink>
+                        <NavLink
+                            to="/about"
                             onClick={handleNavClick}
-                            className="block py-2 px-4 text-lg text-gray-700 hover:bg-gray-200"
+                            className={({ isActive, isPending }) =>
+                                `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                            }
                         >
                             About
-                        </a>
-                        <a
-                            href="#services"
-                            onClick={handleNavClick}
-                            className="block py-2 px-4 text-lg text-gray-700 hover:bg-gray-200"
-                        >
-                            Services
-                        </a>
-                        <a
-                            href="#contact"
-                            onClick={handleNavClick}
-                            className="block py-2 px-4 text-lg text-gray-700 hover:bg-gray-200"
-                        >
-                            Contact
-                        </a>
+                        </NavLink>
                     </nav>
                 </div>
             </div>

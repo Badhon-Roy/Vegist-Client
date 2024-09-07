@@ -8,7 +8,7 @@ const AllCategories = () => {
     const { data, isLoading } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/categories')
+            const res = await axios.get('https://vegist-server.vercel.app/categories')
             return res.data;
         }
     })
@@ -18,9 +18,9 @@ const AllCategories = () => {
 
 
     return (
-        <div className="max-w-[1600px] mx-auto my-16">
+        <div className="max-w-[1600px] mx-auto my-16 px-4">
             <h2 className="text-2xl font-bold">Shop by category</h2>
-            <div className="grid grid-cols-5 gap-4 my-6">
+            <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-4 my-6">
                 {Array.isArray(data) && data?.map(category => (
                     <AllCategory key={category?._id} category={category}></AllCategory>
                 ))}
