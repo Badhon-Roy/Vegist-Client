@@ -24,7 +24,7 @@ const SignIn = () => {
         console.log(res.user);
         toast.success('👦🏻 Sing In successfully!', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -50,7 +50,7 @@ const SignIn = () => {
         console.error("Error adding user to the database:", error);
         toast.error(`🚨 ${errorMessage}`, {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -68,7 +68,7 @@ const SignIn = () => {
         if (res.user) {
           toast.success('👦🏻 Sing In successfully!', {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -84,7 +84,7 @@ const SignIn = () => {
         console.log(error);
         toast.error('🚨 Error creating user!', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,

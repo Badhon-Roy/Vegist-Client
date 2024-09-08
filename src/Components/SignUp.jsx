@@ -33,7 +33,7 @@ const SignUp = () => {
             if (res.data?.insertedId) {
                 toast.success('👦🏻 Sign up successfully!', {
                     position: "top-center",
-                    autoClose: 5000,
+                    autoClose: 1500,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -58,7 +58,7 @@ const SignUp = () => {
 
             toast.error(`🚨 ${errorMessage}`, {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: 1500,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -77,7 +77,7 @@ const SignUp = () => {
                 if (res.user) {
                     toast.success('👦🏻 Sing In successfully!', {
                         position: "top-center",
-                        autoClose: 5000,
+                        autoClose: 1500,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
@@ -93,7 +93,7 @@ const SignUp = () => {
                 console.log(error);
                 toast.error('🚨 Error creating user!', {
                     position: "top-center",
-                    autoClose: 5000,
+                    autoClose: 1500,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

@@ -1,13 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { FaCheck } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { useParams } from "react-router-dom";
-import Swal from "sweetalert2";
+import { Bounce, toast } from "react-toastify";
+import { AuthContext } from "../../Provider/AuthProvider";
+import useAllAddToCards from "../../Shared/useAllAddToCards";
 
 const ProductDetails = () => {
     const { id } = useParams();
+    const {refetch} = useAllAddToCards();
+
+    const {user} = useContext(AuthContext);
 
     const { data, isLoading, isError } = useQuery({
         queryKey: ['categories', id],
@@ -35,14 +41,25 @@ const ProductDetails = () => {
     };
 
 
-    const handleAddToCart = () => {
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500
-        });
+    const handleAddToCart = async () => {
+        const productInfo = {name , category,image, price , discount ,rating ,color , 
+            email : user?.email
+        }
+        const res = await axios.post('http://localhost:5000/addToCard' , productInfo)
+        if(res.data?.insertedId){
+            toast.success('Add to card successfully!', {
+                position: "top-center",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+              });
+              refetch();
+        }
     }
 
     return (

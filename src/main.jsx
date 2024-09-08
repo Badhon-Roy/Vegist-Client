@@ -18,6 +18,7 @@ import AuthProvider from "./Provider/AuthProvider";
 import CherryJuices from "./Pages/Home/CherryJuices";
 import Coffees from "./Pages/Home/Coffees";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import AddedCards from "./Pages/AddedCards/AddedCards";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/singUp",
         element: <SignUp></SignUp>
+      },
+      {
+        path : "/addedCards",
+        element : <AddedCards></AddedCards>
       }
     ]
   },
