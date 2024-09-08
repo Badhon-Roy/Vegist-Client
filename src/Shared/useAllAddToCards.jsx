@@ -8,7 +8,7 @@ const useAllAddToCards = () => {
     const {user} = useContext(AuthContext)
 
     const {data : addedCards , isLoading , refetch} = useQuery({
-        queryKey : "add to card",
+        queryKey : ["add to card"],
         queryFn : async ()=>{
             const res = await axios.get(`https://vegist-server.vercel.app/addToCard?email=${user?.email}`)
             return res.data;

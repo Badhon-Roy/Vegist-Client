@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="max-w-[1600px] mx-auto">
                 <h2 className="text-center text-[24px] font-bold">Get the latest deals</h2>
                 <p className="text-center my-2">Receive $20 coupon for first shopping</p>
-                <div className="join flex items-center justify-center">
+                <div className=" join flex items-center justify-center">
                     <input className="input input-bordered input-success join-item" placeholder="Email"  type="email"/>
                     <button className="bg-[#7cc000] text-white p-3 font-bold join-item rounded-r-full flex items-center gap-1">
                             <span>Send</span>

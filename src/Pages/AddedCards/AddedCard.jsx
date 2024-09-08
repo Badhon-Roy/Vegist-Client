@@ -11,12 +11,12 @@ const AddedCard = ({ addedCard }) => {
 
 
     return (
-        <div className="border mb-5 flex items-center justify-between md:gap-10 gap-2 md:p-4 p-2 rounded-lg relative">
+        <div className="border-2 mb-5 flex items-center justify-between md:gap-10 gap-3 md:p-4 p-2 rounded-lg relative">
             <p className="bg-red-500 w-[40px] h-[20px] rounded flex justify-center items-center font-bold text-white text-xl absolute -top-3 right-0 cursor-pointer hover:bg-red-700 md:hidden">x</p>
-            <div>
+            <div className="md:w-full w-2/5">
                 <img className="md:w-[200px] w-[150px] h-[150px] object-cover" src={image} alt="" />
             </div>
-            <div>
+            <div className="md:w-full w-2/5">
                 <div className="rating md:w-28 w-[80px]">
                     <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                     <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
@@ -35,7 +35,7 @@ const AddedCard = ({ addedCard }) => {
                 <p className="md:text-[16px] text-[12px]">Color: {color}</p>
             </div>
 
-            <div className="flex md:flex-row flex-col justify-center items-center md:space-x-10 p-1 border md:px-2 md:py-1 rounded">
+            <div className="flex md:flex-row flex-col justify-center items-center lg:space-x-10 md:space-x-4 p-1 border md:px-2 md:py-1 rounded w-1/5 md:w-full">
                 <button
                     className="bg-red-500 text-white font-bold py-1 px-4 text-2xl rounded-lg hover:bg-red-600 disabled:opacity-50 cursor-pointer"
                 // onClick={handleDecrease}

@@ -141,13 +141,13 @@ const ProductDetails = () => {
                                 ))}
                             </div>
                             <div className="md:flex gap-4">
-                                <button onClick={handleAddToCart} className="bg-[#7cc000] rounded-[30px] w-full mt-4 text-xl text-white px-4 py-1 flex justify-center items-center gap-4">
+                                <button onClick={handleAddToCart} className="bg-[#7cc000] hover:bg-[#f5ab1e] rounded-[30px] w-full mt-4 text-xl text-white px-4 py-1 flex justify-center items-center gap-4">
                                     <img className="w-[50px] object-cover" src="https://img.pikbest.com/origin/10/06/36/28TpIkbEsTfqc.png!sw800" alt="" /> <span>Add To Cart</span>
                                 </button>
-                                <button className="bg-[#7cc000] rounded-[30px] w-full mt-4 text-white text-xl px-4 py-4 flex justify-center items-center gap-4">
+                                <button className="bg-[#7cc000] hover:bg-[#f5ab1e] rounded-[30px] w-full mt-4 text-white text-xl px-4 py-4 flex justify-center items-center gap-4">
                                     <img className="w-[30px] object-cover" src="https://www.freeiconspng.com/thumbs/favorite-icon/heart-favorite-icon-5.png" alt="" /> <span>Favorite</span>
                                 </button>
-                                <button className="bg-[#7cc000] rounded-[30px] w-full mt-4 text-xl text-white px-4 py-1 flex justify-center items-center gap-4">
+                                <button className="bg-[#7cc000] hover:bg-[#f5ab1e] rounded-[30px] w-full mt-4 text-xl text-white px-4 py-1 flex justify-center items-center gap-4">
                                     <img className="w-[50px] object-cover" src="https://static.vecteezy.com/system/resources/previews/012/443/044/non_2x/online-food-order-grocery-delivery-woman-shop-at-an-online-store-the-product-catalog-on-the-web-browser-page-stay-at-home-concept-quarantine-or-self-isolation-png.png" alt="" /> <span>Buy Now</span>
                                 </button>
                             </div>
