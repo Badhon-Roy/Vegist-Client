@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
@@ -8,6 +8,10 @@ import { Helmet } from "react-helmet";
 const SignIn = () => {
 
   const { googleAuth, signIn } = useContext(AuthContext)
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || '/';
 
 
   const handleSingIn = (e) => {
@@ -29,6 +33,7 @@ const SignIn = () => {
           theme: "light",
           transition: Bounce,
         });
+        navigate(from , { replace : true });
       })
       .catch(error => {
         let errorMessage = "An error occurred during sign-in. Please try again!";
@@ -73,6 +78,7 @@ const SignIn = () => {
             transition: Bounce,
           });
         }
+        navigate(from , { replace : true });
       })
       .catch(error => {
         console.log(error);

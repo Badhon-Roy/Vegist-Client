@@ -12,7 +12,7 @@ const ProductDetails = () => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['categories', id],
         queryFn: async () => {
-            const res = await axios.get(`https://vegist-server.vercel.app/products/${id}`)
+            const res = await axios.get(`http://localhost:5000/products/${id}`)
             return res.data;
         }
     });

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import { Bounce, toast } from "react-toastify";
@@ -7,65 +7,31 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from "react-helmet";
 
 const SignUp = () => {
-    const { createUser, googleAuth } = useContext(AuthContext)
-    const handleSingUp = e => {
+    const { createUser, googleAuth, updateUserProfile } = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/';
+
+
+    const handleSingUp = async (e) => {
         e.preventDefault();
+
         const form = e.target;
         const name = form.name.value;
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
-        createUser(email, password)
-            .then(result => {
-                console.log(result.user);
-                const createdAt = result?.user?.metadata?.creationTime;
-                const userInfo = { name, photoURL, email, password, createdAt };
-                axios.post('http://localhost:5000/user', userInfo)
-                    .then(res => {
-                        console.log(res.data.insertedId);
-                        if (res.data.insertedId) {
-                            toast.success('👦🏻 Sing up successfully!', {
-                                position: "top-center",
-                                autoClose: 5000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                                transition: Bounce,
-                            });
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Error adding user to the database:", error);
-                        toast.error('🚨 Error creating user!', {
-                            position: "top-center",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                            transition: Bounce,
-                        });
-                    });
 
-            })
-            .catch(error => {
-                console.error("Error creating user:", error);
+        try {
+            const result = await createUser(email, password);
+            await updateUserProfile(name, photoURL);
+            const createdAt = result?.user?.metadata?.creationTime;
+            const userInfo = { name, photoURL, email, password, createdAt };
 
-                let errorMessage = "An error occurred!";
-                if (error.code === 'auth/email-already-in-use') {
-                    errorMessage = "This email is already in use. Please use a different email.";
-                } else if (error.code === 'auth/weak-password') {
-                    errorMessage = "The password is too weak. Please choose a stronger password.";
-                } else if (error.code === 'auth/invalid-email') {
-                    errorMessage = "The email address is not valid. Please check your email.";
-                }
-                toast.error(`🚨 ${errorMessage}`, {
+            const res = await axios.post('http://localhost:5000/user', userInfo);
+
+            if (res.data?.insertedId) {
+                toast.success('👦🏻 Sign up successfully!', {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -76,8 +42,34 @@ const SignUp = () => {
                     theme: "light",
                     transition: Bounce,
                 });
+                navigate(from, { replace: true });
+            }
+        } catch (error) {
+            console.error("Error:", error);
+
+            let errorMessage = "An error occurred!";
+            if (error.code === 'auth/email-already-in-use') {
+                errorMessage = "This email is already in use. Please use a different email.";
+            } else if (error.code === 'auth/weak-password') {
+                errorMessage = "The password is too weak. Please choose a stronger password.";
+            } else if (error.code === 'auth/invalid-email') {
+                errorMessage = "The email address is not valid. Please check your email.";
+            }
+
+            toast.error(`🚨 ${errorMessage}`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
             });
-    }
+        }
+    };
+
 
     const handleGoogleLogIn = () => {
         googleAuth()
@@ -95,6 +87,7 @@ const SignUp = () => {
                         transition: Bounce,
                     });
                 }
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);

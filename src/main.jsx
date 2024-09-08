@@ -17,6 +17,7 @@ import SignUp from "./Components/SignUp";
 import AuthProvider from "./Provider/AuthProvider";
 import CherryJuices from "./Pages/Home/CherryJuices";
 import Coffees from "./Pages/Home/Coffees";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:id",
-        element: <ProductDetails></ProductDetails>
+        element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
       },
       {
         path: "/about",
