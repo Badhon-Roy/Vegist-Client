@@ -209,6 +209,15 @@ const Navbar = () => {
                         >
                             About
                         </NavLink>
+                        <NavLink
+                            to="/addedCards"
+                            onClick={handleNavClick}
+                            className={({ isActive, isPending }) =>
+                                `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                            }
+                        >
+                            My Card
+                        </NavLink>
                     </nav>
                 </div>
             </div>

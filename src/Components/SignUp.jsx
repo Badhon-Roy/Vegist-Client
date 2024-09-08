@@ -28,7 +28,7 @@ const SignUp = () => {
             const createdAt = result?.user?.metadata?.creationTime;
             const userInfo = { name, photoURL, email, password, createdAt };
 
-            const res = await axios.post('http://localhost:5000/user', userInfo);
+            const res = await axios.post('https://vegist-server.vercel.app/user', userInfo);
 
             if (res.data?.insertedId) {
                 toast.success('👦🏻 Sign up successfully!', {

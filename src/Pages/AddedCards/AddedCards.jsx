@@ -25,7 +25,7 @@ const AddedCards = () => {
                 </div>
             </div>
             <div className="max-w-[1600px] mx-auto px-4 my-16">
-                <div className="w-2/3">
+                <div className="lg:w-2/3">
                     {
                         addedCards?.map(addedCard => <AddedCard key={addedCard?._id} addedCard={addedCard}></AddedCard>)
                     }
