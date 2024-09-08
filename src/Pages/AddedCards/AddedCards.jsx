@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAllAddToCards from "../../Shared/useAllAddToCards";
 import AddedCard from "./AddedCard";
+import { Link } from "react-router-dom";
 
 
 const AddedCards = () => {
@@ -25,11 +26,18 @@ const AddedCards = () => {
                 </div>
             </div>
             <div className="max-w-[1600px] mx-auto px-4 my-16">
-                <div className="lg:w-2/3">
-                    {
-                        addedCards?.map(addedCard => <AddedCard key={addedCard?._id} addedCard={addedCard}></AddedCard>)
-                    }
-                </div>
+                {
+                    addedCards.length > 0 ? <div className="lg:w-2/3">
+                        {
+                            addedCards?.map(addedCard => <AddedCard key={addedCard?._id} addedCard={addedCard}></AddedCard>)
+                        }
+                    </div> : <div>
+                        <p className="text-2xl text-center font-bold">You don't added any product</p>
+                        <Link to={'/allOrganicProducts'} className="flex justify-center mt-4">
+                            <button className="BTN underline">Shop now</button>
+                        </Link>
+                    </div>
+                }
             </div>
         </div>
     );

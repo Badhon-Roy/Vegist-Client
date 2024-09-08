@@ -10,7 +10,7 @@ const Products = () => {
     const { data } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await axios.get(`https://vegist-server.vercel.app/categories/${category}`)
+            const res = await axios.get(`https://vegist-server-one.vercel.app/categories/${category}`)
             return res.data;
         }
     })

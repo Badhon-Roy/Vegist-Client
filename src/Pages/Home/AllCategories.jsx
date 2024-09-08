@@ -8,7 +8,7 @@ const AllCategories = () => {
     const { data, isLoading } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const res = await axios.get('https://vegist-server.vercel.app/categories')
+            const res = await axios.get('https://vegist-server-one.vercel.app/categories')
             return res.data;
         }
     })

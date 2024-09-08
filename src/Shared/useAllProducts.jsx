@@ -6,7 +6,7 @@ const useAllProducts = () => {
     const { data , isLoading } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
-            const res = await axios.get('https://vegist-server.vercel.app/products')
+            const res = await axios.get('https://vegist-server-one.vercel.app/products')
             return res.data;
         }
     })
