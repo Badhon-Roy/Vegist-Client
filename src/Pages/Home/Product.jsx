@@ -39,10 +39,6 @@ const Product = ({ product }) => {
                         <p className="text-[#7cc000]">{calculateTotalPriceWithoutDiscount()} tk</p>
                         <del>{price} tk</del>
                     </div>
-                    {/* <div className="flex gap-2">
-                        <button className="hover:bg-[#7cc000] border border-[#7cc000] hover:text-white p-2 rounded-md cursor-pointer hover:w-[50px] flex justify-center"><MdFavoriteBorder /></button>
-                        <button className="hover:bg-[#7cc000] border border-[#7cc000] hover:text-white p-2 hover:w-[50px] hover:transition rounded-md  cursor-pointer flex justify-center" ><HiShoppingBag /></button>
-                    </div> */}
                 </div>
             </div>
         </Link>

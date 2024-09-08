@@ -15,6 +15,8 @@ import AllOrganicProducts from "./Pages/Home/AllOrganicProducts";
 import SignIn from "./Components/SignIn";
 import SignUp from "./Components/SignUp";
 import AuthProvider from "./Provider/AuthProvider";
+import CherryJuices from "./Pages/Home/CherryJuices";
+import Coffees from "./Pages/Home/Coffees";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>
+      },
+      {
+        path : "/cheeryJuices",
+        element : <CherryJuices></CherryJuices>
+      },
+      {
+        path : "/coffees",
+        element : <Coffees></Coffees>
       },
       {
         path: "/allOrganicProducts",

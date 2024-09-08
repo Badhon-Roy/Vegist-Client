@@ -1,0 +1,154 @@
+[
+    {
+        "name": "Classic Cherry Juice",
+        "category": "Cherry Juice",
+        "image": "https://img.freepik.com/premium-photo/cherry-juice-sweet-natural-flavor_1234738-223053.jpg",
+        "price": 300,
+        "discount": 3,
+        "rating": 4.0,
+        "description": "A classic cherry juice made from the finest cherries, offering a rich and natural flavor.",
+        "origin": "Canada",
+        "nutrition": {
+            "calories": 140,
+            "protein": "0.5g",
+            "carbohydrates": "35g",
+            "fat": "0g",
+            "fiber": "1g"
+        },
+        "storage": "Keep refrigerated after opening.",
+        "shelf_life": "8 months",
+        "color": "Deep Red",
+        "quantity": 40,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": false,
+        "review": [
+            {
+                "reviewer": "Emily Clark",
+                "comment": "Smooth and flavorful. My family loves it!",
+                "rating": 4,
+                "date": "2024-05-20"
+            },
+            {
+                "reviewer": "Daniel Lee",
+                "comment": "Good taste but a bit sweet for my liking.",
+                "rating": 3.5,
+                "date": "2024-05-18"
+            }
+        ]
+    },
+    {
+        "name": "Sugar-Free Cherry Juice",
+        "category": "Cherry Juice",
+        "image": "https://www.kroger.com/product/images/large/right/0007468207917",
+        "price": 350,
+        "discount": 4,
+        "rating": 4.3,
+        "description": "Enjoy the natural sweetness of cherries without any added sugars. Perfect for a healthy lifestyle.",
+        "origin": "USA",
+        "nutrition": {
+            "calories": 110,
+            "protein": "1g",
+            "carbohydrates": "25g",
+            "fat": "0g",
+            "fiber": "2g"
+        },
+        "storage": "Store in a cool, dry place. Refrigerate after opening.",
+        "shelf_life": "9 months",
+        "color": "Vibrant Red",
+        "quantity": 35,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": false,
+        "review": [
+            {
+                "reviewer": "Sophia Martinez",
+                "comment": "Perfect for my diet. Tastes great!",
+                "rating": 5,
+                "date": "2024-06-05"
+            },
+            {
+                "reviewer": "Liam Johnson",
+                "comment": "Good alternative to regular juice.",
+                "rating": 4,
+                "date": "2024-06-02"
+            }
+        ]
+    },
+    {
+        "name": "Cherry Blend Juice",
+        "category": "Cherry Juice",
+        "image": "https://www.alphafoodie.com/wp-content/uploads/2022/03/Cherry-Juice-square.jpeg",
+        "price": 325,
+        "discount": 2,
+        "rating": 4.1,
+        "description": "A delightful blend of cherries and other natural fruits, creating a unique and refreshing taste.",
+        "origin": "Australia",
+        "nutrition": {
+            "calories": 160,
+            "protein": "1.2g",
+            "carbohydrates": "40g",
+            "fat": "0.3g",
+            "fiber": "3g"
+        },
+        "storage": "Refrigerate after opening.",
+        "shelf_life": "7 months",
+        "color": "Light Red",
+        "quantity": 25,
+        "weight": 1,
+        "isNew": false,
+        "isOrganicProduct": false,
+        "review": [
+            {
+                "reviewer": "Olivia Brown",
+                "comment": "Great flavor combination. Very enjoyable!",
+                "rating": 4.2,
+                "date": "2024-04-22"
+            },
+            {
+                "reviewer": "Noah Davis",
+                "comment": "Nice taste but packaging could be better.",
+                "rating": 3.8,
+                "date": "2024-04-18"
+            }
+        ]
+    },
+    {
+        "name": "Cherry Concentrate",
+        "category": "Cherry Juice",
+        "image": "https://kingorchards.com/wp-content/uploads/2018/12/FJK_4240.jpg",
+        "price": 400,
+        "discount": 1,
+        "rating": 4.4,
+        "description": "Highly concentrated cherry juice perfect for mixing in beverages or cooking.",
+        "origin": "France",
+        "nutrition": {
+            "calories": 200,
+            "protein": "2g",
+            "carbohydrates": "50g",
+            "fat": "0.5g",
+            "fiber": "4g"
+        },
+        "storage": "Store in a cool, dry place. Shake well before use.",
+        "shelf_life": "10 months",
+        "color": "Dark Red",
+        "quantity": 20,
+        "weight": 1,
+        "isNew": true,
+        "isOrganicProduct": false,
+        "review": [
+            {
+                "reviewer": "Ava Wilson",
+                "comment": "Excellent quality concentrate. Great for recipes!",
+                "rating": 4.5,
+                "date": "2024-07-10"
+            },
+            {
+                "reviewer": "Ethan Moore",
+                "comment": "Strong flavor, exactly what I needed.",
+                "rating": 4.3,
+                "date": "2024-07-08"
+            }
+        ]
+    }
+]
