@@ -14,7 +14,7 @@ const AddedCard = ({ addedCard }) => {
     };
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`http://localhost:5000/addToCard/${_id}`)
+            const res = await axios.delete(`https://vegist-server-one.vercel.app/addToCard/${_id}`)
             if (res.data.deletedCount) {
                 toast.success('👦🏻 Delete successfully!', {
                     position: "top-center",

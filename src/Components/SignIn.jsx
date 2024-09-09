@@ -3,11 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
+import SocialLogin from "./SocialLogin";
 
 
 const SignIn = () => {
 
-  const { googleAuth, signIn } = useContext(AuthContext)
+  const {signIn } = useContext(AuthContext)
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -61,57 +62,26 @@ const SignIn = () => {
       });
   }
 
-
-  const handleGoogleLogIn = () => {
-    googleAuth()
-      .then(res => {
-        if (res.user) {
-          toast.success('👦🏻 Sing In successfully!', {
-            position: "top-center",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-          });
-        }
-        navigate(from , { replace : true });
-      })
-      .catch(error => {
-        console.log(error);
-        toast.error('🚨 Error creating user!', {
-          position: "top-center",
-          autoClose: 1500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-      })
-  }
-
-
-
   return (
-    <div className="my-16 max-w-[900px] mx-auto">
+    <div style={{
+      backgroundImage: "url('https://jthemes.net/themes/html/organic/assets/images/banner/banner2.png')",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+  }}>
+    <div className="py-16 max-w-[900px] mx-auto px-4">
       <Helmet>
         <title>Vegist || Sing In</title>
       </Helmet>
       <h2 className="text-center text-3xl font-bold">Sign In</h2>
-      <div className="border-2 border-[#f5ab1e]  flex justify-between gap-10 shadow-lg shadow-[#7cc000] rounded-lg mt-10">
-        <div className="flex-1 p-10">
+      <div className="border-2 border-[#f5ab1e]  flex md:flex-row flex-col-reverse justify-between md:gap-10 gap-2 shadow-lg shadow-[#7cc000] rounded-lg mt-10 bg-opacity-10 bg-gray-100 backdrop-filter backdrop-blur-lg">
+        <div className="flex-1 md:p-10 p-6 ">
           <form onSubmit={handleSingIn}>
 
             {/* email */}
             <div className="flex gap-2 border border-[#f5ab1e] px-8 py-2 shadow-md rounded-full shadow-[#7cc000]">
               <img className="w-[30px]" src="https://freepngimg.com/save/64685-box-icons-symbol-computer-address-email-gmail/1600x1600" alt="" />
-              <input name="email" className="border-none focus:outline-none px-2 w-full" type="email" required placeholder="Email" />
+              <input name="email" className="border-none focus:outline-none px-2 w-full bg-white" type="email" required placeholder="Email" />
             </div>
 
             {/* password */}
@@ -126,14 +96,13 @@ const SignIn = () => {
             <h2 className="mt-2 text-right pr-4">Don't have an account <Link to='/singUp' className="underline font-bold text-[#7cc000]">Sing Up</Link>
             </h2>
           </form>
-          <div>
-            <button onClick={handleGoogleLogIn} className="border btn mt-8"><img className="w-[30px]" src="https://static.vecteezy.com/system/resources/previews/022/613/027/non_2x/google-icon-logo-symbol-free-png.png" alt="" /> Continue with Google</button>
-          </div>
+          <SocialLogin></SocialLogin>
         </div>
         <div className="flex-1">
           <img className="w-full h-full object-cover" src="https://cdn.dribbble.com/users/1172503/screenshots/4505740/login-form.gif" alt="" />
         </div>
       </div>
+    </div>
     </div>
   );
 };

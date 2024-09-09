@@ -18,7 +18,7 @@ const ProductDetails = () => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['categories', id],
         queryFn: async () => {
-            const res = await axios.get(`https://vegist-server.vercel.app/products/${id}`)
+            const res = await axios.get(`https://vegist-server-one.vercel.app/products/${id}`)
             return res.data;
         }
     });
@@ -45,7 +45,7 @@ const ProductDetails = () => {
         const productInfo = {name , category,image, price , discount ,rating ,color , 
             email : user?.email
         }
-        const res = await axios.post('https://vegist-server.vercel.app/addToCard' , productInfo)
+        const res = await axios.post('https://vegist-server-one.vercel.app/addToCard' , productInfo)
         if(res.data?.insertedId){
             toast.success('Add to card successfully!', {
                 position: "top-center",
