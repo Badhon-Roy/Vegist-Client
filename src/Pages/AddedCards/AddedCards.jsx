@@ -27,7 +27,7 @@ const AddedCards = () => {
             </div>
             <div className="max-w-[1600px] mx-auto px-4 my-16">
                 {
-                    addedCards.length > 0 ? <div className="lg:w-2/3">
+                    addedCards?.length > 0 ? <div className="lg:w-2/3">
                         {
                             addedCards?.map(addedCard => <AddedCard key={addedCard?._id} addedCard={addedCard}></AddedCard>)
                         }

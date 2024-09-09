@@ -10,8 +10,8 @@ const useAllAddToCards = () => {
         queryKey: ["addToCard", user?.email],
         queryFn: async () => {
             if (!user?.email) return [];
-            const res = await axios.get(`https://vegist-server-one.vercel.app/addToCard?email=${user?.email}`);
-            return res.data;
+            const res = await axios?.get(`https://vegist-server-one.vercel.app/addToCard?email=${user?.email}`);
+            return res?.data;
         },
         enabled: !!user?.email,
     });

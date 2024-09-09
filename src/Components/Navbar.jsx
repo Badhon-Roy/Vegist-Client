@@ -209,15 +209,26 @@ const Navbar = () => {
                         >
                             About
                         </NavLink>
-                        <NavLink
-                            to="/addedCards"
+                        {user && user?.email ? <>
+                            <NavLink
+                                to="/addedCards"
+                                onClick={handleNavClick}
+                                className={({ isActive, isPending }) =>
+                                    `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                                }
+                            >
+                                My Card
+                            </NavLink>
+                                <button className='bg-[#7cc000] text-white font-bold py-2 rounded-lg hover:bg-[#f5ab1e]' onClick={() => { handleSignOut(); handleNavClick(); }}>Sing out</button>
+                        </> : <NavLink
+                            to="/signIn"
                             onClick={handleNavClick}
                             className={({ isActive, isPending }) =>
                                 `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
                             }
                         >
-                            My Card
-                        </NavLink>
+                            Sing In
+                        </NavLink>}
                     </nav>
                 </div>
             </div>

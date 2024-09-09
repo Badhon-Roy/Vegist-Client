@@ -11,9 +11,9 @@ import useAllAddToCards from "../../Shared/useAllAddToCards";
 
 const ProductDetails = () => {
     const { id } = useParams();
-    const {refetch} = useAllAddToCards();
+    const { refetch } = useAllAddToCards();
 
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const { data, isLoading, isError } = useQuery({
         queryKey: ['categories', id],
@@ -42,11 +42,12 @@ const ProductDetails = () => {
 
 
     const handleAddToCart = async () => {
-        const productInfo = {name , category,image, price , discount ,rating ,color , 
-            email : user?.email
+        const productInfo = {
+            name, category, image, price, discount, rating, color,
+            email: user?.email
         }
-        const res = await axios.post('https://vegist-server-one.vercel.app/addToCard' , productInfo)
-        if(res.data?.insertedId){
+        const res = await axios.post('https://vegist-server-one.vercel.app/addToCard', productInfo)
+        if (res.data?.insertedId) {
             toast.success('Add to card successfully!', {
                 position: "top-center",
                 autoClose: 1500,
@@ -57,8 +58,8 @@ const ProductDetails = () => {
                 progress: undefined,
                 theme: "light",
                 transition: Bounce,
-              });
-              refetch();
+            });
+            refetch();
         }
     }
 
@@ -81,11 +82,12 @@ const ProductDetails = () => {
                         <div className="flex-1 lg:mt-0 mt-8">
                             <div className="flex items-center gap-4 ">
                                 <div className="rating w-28">
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 1} />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 2} />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 3} />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 4} />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 5} />
+                                    <p className="ml-2 text-sm">({rating})</p>
                                     <p className="ml-2 text-sm">({rating})</p>
                                 </div>
                                 <div>

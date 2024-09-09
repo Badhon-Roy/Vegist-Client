@@ -10,9 +10,10 @@ const SocialLogin = () => {
     const navigate = useNavigate();
     const from = location?.state?.from?.pathname || '/';
 
+
     const handleGoogleLogIn = async () => {
         try {
-            const res = await googleAuth()
+            const res = await googleAuth();
             const createdAt = res?.user?.metadata?.creationTime;
             const userInfo = {
                 name: res?.user?.displayName,
@@ -22,8 +23,21 @@ const SocialLogin = () => {
                 createdAt
             };
             const result = await axios.post('https://vegist-server-one.vercel.app/user', userInfo);
-            if (res.user || result.data?.insertedId) {
-                toast.success('👦🏻 Sing In successfully!', {
+
+            if (result.data?.insertedId) {
+                toast.success('👦🏻 New user added and signed in successfully!', {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+            } else if (result.data?.massage === "user already exists") {
+                toast.success('👦🏻 Signed in successfully!', {
                     position: "top-center",
                     autoClose: 1500,
                     hideProgressBar: false,
@@ -36,10 +50,9 @@ const SocialLogin = () => {
                 });
             }
             navigate(from, { replace: true });
-        }
-        catch (error) {
-            console.log(error);
-            toast.error(`🚨 Something is wrong. Please try again!`, {
+        } catch (error) {
+            console.error('Error during Google sign-in:', error);
+            toast.error('🚨 Something went wrong. Please try again!', {
                 position: "top-center",
                 autoClose: 1500,
                 hideProgressBar: false,
@@ -51,7 +64,11 @@ const SocialLogin = () => {
                 transition: Bounce,
             });
         }
-    }
+    };
+    
+
+
+   
     return (
         <div>
             <button onClick={handleGoogleLogIn} className="border btn mt-8"><img className="w-[30px]" src="https://static.vecteezy.com/system/resources/previews/022/613/027/non_2x/google-icon-logo-symbol-free-png.png" alt="" /> Continue with Google</button>

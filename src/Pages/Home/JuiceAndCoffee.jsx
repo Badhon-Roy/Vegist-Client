@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const JuiceAndCoffee = ({ product }) => {
-    const { _id,name, image, price, discount, rating } = product;
+    const { _id, name, image, price, discount, rating } = product;
 
     const calculateTotalPriceWithoutDiscount = () => {
         const totalPrice = parseFloat(price);
@@ -27,11 +27,11 @@ const JuiceAndCoffee = ({ product }) => {
                     <h2 className="md:text-xl font-bold md:hidden">{name.slice(0, 16)}..</h2>
                     <h2 className="md:text-xl font-bold md:block hidden">{name.slice(0, 24)}..</h2>
                     <div className="rating w-24 flex items-center">
-                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 1} />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 2} />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 3} />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 4} />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 5} />
                         <p className="ml-2 text-sm">({rating})</p>
                     </div>
 
