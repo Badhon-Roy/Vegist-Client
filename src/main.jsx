@@ -19,6 +19,7 @@ import CherryJuices from "./Pages/Home/CherryJuices";
 import Coffees from "./Pages/Home/Coffees";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import AddedCards from "./Pages/AddedCards/AddedCards";
+import FavoriteCards from "./Pages/FavoriteCards/FavoriteCards";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path : "/addedCards",
         element : <AddedCards></AddedCards>
+      },
+      {
+        path : "/favoriteCards",
+        element : <FavoriteCards></FavoriteCards>
       }
     ]
   },

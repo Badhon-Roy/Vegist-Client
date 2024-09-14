@@ -5,12 +5,14 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Bounce, toast } from 'react-toastify';
 import useAllAddToCards from '../Shared/useAllAddToCards';
+import useFavoriteCards from '../Shared/useFavoriteCards';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const { user, logOut } = useContext(AuthContext)
     const { addedCards } = useAllAddToCards();
+    const { favoriteProducts } = useFavoriteCards();
 
     const toggleDrawer = () => {
         setIsOpen(!isOpen);
@@ -121,9 +123,11 @@ const Navbar = () => {
                     {
                         user && user?.email ? <div>
 
-                            <div className='w-[30px] mr-2 cursor-pointer'>
-                                <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="" />
-                            </div>
+                            <Link to={'/favoriteCards'}>
+                                <div className='w-[30px] mr-2 cursor-pointer relative'>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/73/73814.png" alt="" />
+                                    <p className='absolute -top-3 -right-1 rounded-full border w-[20px] h-[20px] text-sm font-bold p-1 flex justify-center items-center bg-green-500'>{favoriteProducts?.length}</p>
+                                </div></Link>
                             <Link to={'/addedCards'}>
                                 <div className='w-[40px] mr-6 cursor-pointer relative'>
                                     <img src="https://static.vecteezy.com/system/resources/previews/019/787/018/non_2x/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.png" alt="" />
@@ -219,7 +223,7 @@ const Navbar = () => {
                             >
                                 My Card
                             </NavLink>
-                                <button className='bg-[#7cc000] text-white font-bold py-2 rounded-lg hover:bg-[#f5ab1e]' onClick={() => { handleSignOut(); handleNavClick(); }}>Sing out</button>
+                            <button className='bg-[#7cc000] text-white font-bold py-2 rounded-lg hover:bg-[#f5ab1e]' onClick={() => { handleSignOut(); handleNavClick(); }}>Sing out</button>
                         </> : <NavLink
                             to="/signIn"
                             onClick={handleNavClick}

@@ -22,7 +22,7 @@ const SocialLogin = () => {
                 password: res?.user?.password || 0,
                 createdAt
             };
-            const result = await axios.post('https://vegist-server-one.vercel.app/user', userInfo);
+            const result = await axios.post('http://localhost:5000/user', userInfo);
 
             if (result.data?.insertedId) {
                 toast.success('👦🏻 New user added and signed in successfully!', {

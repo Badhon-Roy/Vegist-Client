@@ -18,7 +18,7 @@ const ProductDetails = () => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['categories', id],
         queryFn: async () => {
-            const res = await axios.get(`https://vegist-server-one.vercel.app/products/${id}`)
+            const res = await axios.get(`http://localhost:5000/products/${id}`)
             return res.data;
         }
     });
@@ -31,7 +31,7 @@ const ProductDetails = () => {
         return <div>Error fetching data</div>;
     }
 
-    const { name, category, image, price, discount, rating, description, origin, nutrition = {}, storage, shelf_life, color, quantity, weight, review } = data || {};
+    const { _id,name, category, image, price, discount, rating, description, origin, nutrition = {}, storage, shelf_life, color, quantity, weight, review } = data || {};
 
     const calculateTotalPriceWithoutDiscount = () => {
         const totalPrice = parseFloat(price);
@@ -46,9 +46,32 @@ const ProductDetails = () => {
             name, category, image, price, discount, rating, color,
             email: user?.email
         }
-        const res = await axios.post('https://vegist-server-one.vercel.app/addToCard', productInfo)
+        const res = await axios.post('http://localhost:5000/addToCard', productInfo)
         if (res.data?.insertedId) {
             toast.success('Add to card successfully!', {
+                position: "top-center",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+            refetch();
+        }
+    }
+
+    const handleFavoriteProduct = async ()=>{
+        console.log(_id);
+        const productInfo = {
+            product_id : _id,
+            email: user?.email
+        }
+        const res = await axios.post('http://localhost:5000/favorite' , productInfo)
+        if (res.data?.insertedId) {
+            toast.success('Add favorite successfully!', {
                 position: "top-center",
                 autoClose: 1500,
                 hideProgressBar: false,
@@ -146,7 +169,7 @@ const ProductDetails = () => {
                                 <button onClick={handleAddToCart} className="bg-[#7cc000] hover:bg-[#f5ab1e] rounded-[30px] w-full mt-4 text-xl text-white px-4 py-1 flex justify-center items-center gap-4">
                                     <img className="w-[50px] object-cover" src="https://img.pikbest.com/origin/10/06/36/28TpIkbEsTfqc.png!sw800" alt="" /> <span>Add To Cart</span>
                                 </button>
-                                <button className="bg-[#7cc000] hover:bg-[#f5ab1e] rounded-[30px] w-full mt-4 text-white text-xl px-4 py-4 flex justify-center items-center gap-4">
+                                <button onClick={handleFavoriteProduct} className="bg-[#7cc000] hover:bg-[#f5ab1e] rounded-[30px] w-full mt-4 text-white text-xl px-4 py-4 flex justify-center items-center gap-4">
                                     <img className="w-[30px] object-cover" src="https://www.freeiconspng.com/thumbs/favorite-icon/heart-favorite-icon-5.png" alt="" /> <span>Favorite</span>
                                 </button>
                                 <button className="bg-[#7cc000] hover:bg-[#f5ab1e] rounded-[30px] w-full mt-4 text-xl text-white px-4 py-1 flex justify-center items-center gap-4">
