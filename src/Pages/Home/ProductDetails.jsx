@@ -8,17 +8,19 @@ import { useParams } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAllAddToCards from "../../Shared/useAllAddToCards";
+import useFavoriteCards from "../../Shared/useFavoriteCards";
 
 const ProductDetails = () => {
     const { id } = useParams();
     const { refetch } = useAllAddToCards();
+    const { favoriteRefetch } = useFavoriteCards();
 
     const { user } = useContext(AuthContext);
 
     const { data, isLoading, isError } = useQuery({
         queryKey: ['categories', id],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/products/${id}`)
+            const res = await axios.get(`https://vegist-server-one.vercel.app/products/${id}`)
             return res.data;
         }
     });
@@ -31,7 +33,7 @@ const ProductDetails = () => {
         return <div>Error fetching data</div>;
     }
 
-    const { _id,name, category, image, price, discount, rating, description, origin, nutrition = {}, storage, shelf_life, color, quantity, weight, review } = data || {};
+    const { _id, name, category, image, price, discount, rating, description, origin, nutrition = {}, storage, shelf_life, color, quantity, weight, review } = data || {};
 
     const calculateTotalPriceWithoutDiscount = () => {
         const totalPrice = parseFloat(price);
@@ -42,47 +44,108 @@ const ProductDetails = () => {
 
 
     const handleAddToCart = async () => {
-        const productInfo = {
-            name, category, image, price, discount, rating, color,
-            email: user?.email
-        }
-        const res = await axios.post('http://localhost:5000/addToCard', productInfo)
-        if (res.data?.insertedId) {
-            toast.success('Add to card successfully!', {
-                position: "top-center",
-                autoClose: 1500,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
-            });
-            refetch();
+        try {
+            const productInfo = {
+                name, category, image, price, discount, rating, color,
+                email: user?.email,
+                product_id: _id,
+            }
+            const res = await axios.post('https://vegist-server-one.vercel.app/addToCard', productInfo)
+            if (res.data?.insertedId) {
+                toast.success('Add to card successfully!', {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+                refetch();
+            }
+        } catch (error) {
+            if (error.response?.status === 409) {
+                const serverMessage = error.response?.data?.message || 'Product is already in the cart!';
+                toast.warn(serverMessage, {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+            } else {
+                console.error('Error adding to cart:', error);
+                toast.error('Something went wrong!', {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+            }
         }
     }
 
-    const handleFavoriteProduct = async ()=>{
-        console.log(_id);
-        const productInfo = {
-            product_id : _id,
-            email: user?.email
-        }
-        const res = await axios.post('http://localhost:5000/favorite' , productInfo)
-        if (res.data?.insertedId) {
-            toast.success('Add favorite successfully!', {
-                position: "top-center",
-                autoClose: 1500,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
-            });
-            refetch();
+
+    const handleFavoriteProduct = async () => {
+        try {
+            const productInfo = {
+                product_id: _id,
+                email: user?.email
+            }
+            const res = await axios.post('https://vegist-server-one.vercel.app/favorite', productInfo)
+            if (res.data?.insertedId) {
+                toast.success('Add favorite successfully!', {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+                favoriteRefetch();
+            }
+        }catch (error) {
+            if (error.response?.status === 409) {
+                const serverMessage = error.response?.data?.message || 'You have already added this product to your cart.';
+                toast.warn(serverMessage, {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+            } else {
+                console.error('Error adding to cart:', error);
+                toast.error('Something went wrong!', {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+            }
         }
     }
 

@@ -6,6 +6,7 @@ import useFavoriteCards from "../../Shared/useFavoriteCards";
 const FavoriteCard = ({favoriteCard}) => {
     const { _id, name, category, image, price, discount, rating, color } = favoriteCard;
     const { favoriteRefetch } = useFavoriteCards();
+    console.log('product id',_id);
 
     const calculateTotalPriceWithoutDiscount = () => {
         const totalPrice = parseFloat(price);
@@ -14,9 +15,8 @@ const FavoriteCard = ({favoriteCard}) => {
         return totalPrice - discountedAmount;
     };
     const handleDelete = async () => {
-        console.log(_id);
         try {
-            const res = await axios.delete(`http://localhost:5000/favorite/${_id}`)
+            const res = await axios.delete(`https://vegist-server-one.vercel.app/favorite/${_id}`)
             console.log(res.data);
             if (res.data.deletedCount) {
                 toast.success('👦🏻 Delete successfully!', {

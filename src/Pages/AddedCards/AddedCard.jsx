@@ -5,7 +5,6 @@ import useAllAddToCards from "../../Shared/useAllAddToCards";
 const AddedCard = ({ addedCard }) => {
     const { _id, name, category, image, price, discount, rating, color } = addedCard;
     const { refetch } = useAllAddToCards();
-
     const calculateTotalPriceWithoutDiscount = () => {
         const totalPrice = parseFloat(price);
         const discountPercentage = parseFloat(discount);
@@ -14,7 +13,7 @@ const AddedCard = ({ addedCard }) => {
     };
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`http://localhost:5000/addToCard/${_id}`)
+            const res = await axios.delete(`https://vegist-server-one.vercel.app/addToCard/${_id}`)
             if (res.data.deletedCount) {
                 toast.success('👦🏻 Delete successfully!', {
                     position: "top-center",
