@@ -215,6 +215,15 @@ const Navbar = () => {
                         </NavLink>
                         {user && user?.email ? <>
                             <NavLink
+                                to="/favoriteCards"
+                                onClick={handleNavClick}
+                                className={({ isActive, isPending }) =>
+                                    `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                                }
+                            >
+                                Favorite Card
+                            </NavLink>
+                            <NavLink
                                 to="/addedCards"
                                 onClick={handleNavClick}
                                 className={({ isActive, isPending }) =>
