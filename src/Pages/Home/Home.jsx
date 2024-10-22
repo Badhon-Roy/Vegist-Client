@@ -30,7 +30,7 @@ const Home = () => {
                         backgroundPosition: "center"
                     }}>
                         <p className="text-xl">50% Off</p>
-                        <h2 className="md:text-3xl text-2xl font-bold my-3"> Organic <br /> Cherry Juice
+                        <h2 className="my-3 text-2xl font-bold md:text-3xl"> Organic <br /> Cherry Juice
                         </h2>
                        <a href="" className="underline">shop now</a>
                     </div>
@@ -43,7 +43,7 @@ const Home = () => {
                         backgroundPosition: "center"
                     }}>
                         <p className="text-xl">50% Off</p>
-                        <h2 className="md:text-3xl text-2xl font-bold my-3"> Organic <br /> Cherry Juice
+                        <h2 className="my-3 text-2xl font-bold md:text-3xl"> Organic <br /> Cherry Juice
                         </h2>
                        <a href="" className="underline">shop now</a>
                     </div>

@@ -25,17 +25,17 @@ const NewProduct = ({ product }) => {
                 }
             </div>
             <div className="p-4">
-                <div className="rating w-24">
-                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 1} />
-                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 2} />
-                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 3} />
-                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 4} />
-                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 5} />
+                <div className="w-24 rating">
+                <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 1} />
+                    <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 2} />
+                    <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 3} />
+                    <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 4} />
+                    <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 5} />
                     <p className="ml-2 text-sm">({rating})</p>
                 </div>
-                <h2 className="md:text-xl font-bold">{name}</h2>
-                <div className="flex justify-between items-center mt-2">
-                    <div className="flex gap-4 items-center font-medium">
+                <h2 className="font-bold md:text-xl">{name}</h2>
+                <div className="flex items-center justify-between mt-2">
+                    <div className="flex items-center gap-4 font-medium">
                         <p className="text-[#7cc000]">{calculateTotalPriceWithoutDiscount()} tk</p>
                         <del>{price} tk</del>
                     </div>

@@ -20,11 +20,16 @@ import Coffees from "./Pages/Home/Coffees";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import AddedCards from "./Pages/AddedCards/AddedCards";
 import FavoriteCards from "./Pages/FavoriteCards/FavoriteCards";
+import Profile from "./Components/Profile";
+// import LoadingPage from "./LoadingPage/LoadingPage";
+// import ErrorPage from "./ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+  // errorElement : <ErrorPage></ErrorPage>,
+    // loader : <LoadingPage></LoadingPage>,
     children: [
       {
         path: "/",
@@ -69,6 +74,10 @@ const router = createBrowserRouter([
       {
         path : "/favoriteCards",
         element : <FavoriteCards></FavoriteCards>
+      },
+      {
+        path : "/profile",
+        element : <Profile></Profile>
       }
     ]
   },

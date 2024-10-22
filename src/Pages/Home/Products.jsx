@@ -3,17 +3,84 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Product from "./Product";
 import { Helmet } from "react-helmet";
+import { useState } from "react";
 
 const Products = () => {
     const { category } = useParams();
+    const [selectedPriceCheckBox, setSelectedPriceCheckBox] = useState(null)
+    const [sortOrder, setSortOrder] = useState(null);
+    const [sortByRating, setSortByRating] = useState(false)
+    const [selectedWeight, setSelectedWeight] = useState(null)
+    const [selectedColor, setSelectedColor] = useState(null)
 
-    const { data } = useQuery({
+
+    const [rangeValue, setRangeValue] = useState([100, 1000]);
+
+
+    const { data: products } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
             const res = await axios.get(`https://vegist-server-one.vercel.app/categories/${category}`)
             return res.data;
         }
     })
+
+    const handleRangeChange = (e, index) => {
+        const newRange = [...rangeValue];
+        newRange[index] = Number(e.target.value);
+        setRangeValue(newRange);
+    };
+
+
+    const handleSortByWeight = (weight) => {
+        setSelectedWeight(selectedWeight === weight ? null : weight)
+    };
+
+    const handleSortByColor = (color) => {
+        setSelectedColor(selectedColor === color ? null : color)
+    }
+
+    const handleSortByPrice = e => {
+        const value = e.target.value;
+        setSelectedPriceCheckBox(value)
+        if (value === "LowToHigh") {
+            setSortOrder('asc')
+            setSortByRating(false)
+        } else if (value === 'HighToLow') {
+            setSortOrder('desc')
+            setSortByRating(false)
+        } else if (value === "BestRating") {
+            setSortByRating(!sortByRating)
+            setSortOrder(null)
+        }
+    }
+
+
+    const filteredProducts = products?.filter(product => {
+        return (
+            (!selectedWeight || product.weight === selectedWeight) &&
+            (!selectedColor || product.color === selectedColor)
+        )
+    });
+
+    let selectedSortAndFilteredProducts = filteredProducts;
+    if (rangeValue) {
+        selectedSortAndFilteredProducts = selectedSortAndFilteredProducts?.filter(
+            (product) => product.price >= rangeValue[0] && product.price <= rangeValue[1]
+        );
+    }
+    if (sortByRating) {
+        selectedSortAndFilteredProducts = selectedSortAndFilteredProducts.slice().sort((a, b) => b.rating - a.rating)
+    }
+    else if (sortOrder === 'asc') {
+        selectedSortAndFilteredProducts = selectedSortAndFilteredProducts.slice().sort((a, b) => a.price - b.price)
+    }
+    else if (sortOrder === 'desc') {
+        selectedSortAndFilteredProducts = selectedSortAndFilteredProducts.slice().sort((a, b) => b.price - a.price)
+    }
+
+
+
 
     return (
         <div>
@@ -29,25 +96,142 @@ const Products = () => {
                 <div className="max-w-[1600px] mx-auto pl-10">
                     <div className="md:max-w-[50%]">
                         <h2 className="text-[#7cc000] font-medium">Fresh and Organic
-                            <br /> <span className="text-4xl font-mono font-bold">{category}</span>
+                            <br /> <span className="font-mono text-4xl font-bold">{category}</span>
                         </h2>
                     </div>
                 </div>
             </div>
             <div className="max-w-[1600px] mx-auto my-16 px-4">
-                <h2 className="md:text-2xl text-xl font-bold">Product of {category} ({data?.length})</h2>
-                <div>
-                    {
-                        data?.length > 0 ? <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-4 my-8">
-                            {
-                                data?.map(product => <Product key={product?._id} product={product}></Product>)
-                            }
-                        </div> : <div className="flex flex-col justify-center items-center">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbzlnvmiwgJUYAN-yiAJRDBe2m0rAVa-gyA&s" alt="" />
-                            <p className="text-2xl font-bold my-4">Sorry No product Available</p>
-                            <Link to={'/'} className="BTN">Back to Home</Link>
+                <div className="flex items-center justify-between gap-5">
+                    <h2 className="font-bold md:text-2xl">Product of {category} ({products?.length})</h2>
+                    <h2 className="font-bold md:text-2xl">Sorted of {category} ({selectedSortAndFilteredProducts?.length})</h2>
+                </div>
+
+                <div className="items-start justify-end gap-10 md:flex">
+                    <div className="px-4 mt-8 lg:w-1/5 md:w-[30%] w-full md:px-0">
+                        {/* sort order by weight */}
+                        <h2 className="mb-4 text-xl font-bold text-warning">Sort by Weight</h2>
+                        <div className="max-h-[100px] overflow-y-scroll">
+                            {Array.from(new Set(products?.map(product => product.weight))).map(weight => (
+                                <div key={weight} className="flex items-start form-control">
+                                    <label className="flex items-center gap-4 mb-4 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            className="checkbox checkbox-warning"
+                                            checked={selectedWeight === weight}
+                                            onChange={() => handleSortByWeight(weight)}
+                                        />
+                                        <span className="font-medium">{weight}</span>
+                                    </label>
+                                </div>
+                            ))}
                         </div>
-                    }
+
+                        <p className="divider divider-warning"></p>
+
+
+
+                        {/* sort order by price and rating */}
+                        <h2 className="mb-4 text-xl font-bold text-success">Sort Order</h2>
+                        <div className="space-y-4">
+                            <div className="form-control">
+                                <label className="flex items-center gap-4 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        value={'LowToHigh'}
+                                        checked={selectedPriceCheckBox === "LowToHigh"}
+                                        onChange={handleSortByPrice}
+                                        className="checkbox checkbox-success"
+                                    />
+                                    <span className="font-medium">Price Low to High</span>
+                                </label>
+                            </div>
+                            <div className="form-control">
+                                <label className="flex items-center gap-4 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        value={'HighToLow'}
+                                        checked={selectedPriceCheckBox === "HighToLow"}
+                                        onChange={handleSortByPrice}
+                                        className="checkbox checkbox-success"
+                                    />
+                                    <span className="font-medium">Price High to Low</span>
+                                </label>
+                            </div>
+                            <div className="form-control">
+                                <label className="flex items-center gap-4 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        value={'BestRating'}
+                                        checked={selectedPriceCheckBox === "BestRating"}
+                                        onChange={handleSortByPrice}
+                                        className="checkbox checkbox-success"
+                                    />
+                                    <span className="font-medium">Bast Rating</span>
+                                </label>
+                            </div>
+
+
+                            <div className="font-bold divider divider-success text-success">Price Range</div>
+
+                            <div className="flex items-center justify-between">
+                                <span className="text-sm font-bold">{rangeValue[0]}</span>
+                                <span className="text-sm font-bold">Max-{rangeValue[1]}</span>
+                            </div>
+                            <div className="relative mt-4">
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="1000"
+                                    value={rangeValue[0]}
+                                    onChange={(e) => handleRangeChange(e, 0)}
+                                    className="range range-success"
+                                />
+                            </div>
+
+
+                        </div>
+                        <p className="divider divider-success"></p>
+
+
+                        {/* sort by color */}
+                        <h2 className="mb-4 text-xl font-bold text-secondary">Sort by Color</h2>
+                        <div className="max-h-[150px] overflow-y-scroll">
+
+                            {Array.from(new Set(products?.map(product => product.color))).map(color => (
+                                <div key={color} className="flex items-start form-control">
+                                    <label className="flex items-center gap-4 mb-4 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            className="checkbox checkbox-secondary"
+                                            checked={selectedColor === color}
+                                            onChange={() => handleSortByColor(color)}
+                                        />
+                                        <span className="font-medium">{color}</span>
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                        <p className="divider divider-secondary"></p>
+
+
+
+                    </div>
+                    <div className="lg:w-4/5 md:w-[70%] w-full">
+                        <div>
+                            {
+                                selectedSortAndFilteredProducts?.length > 0 ? <div className="grid grid-cols-2 gap-4 my-8 lg:grid-cols-4 md:grid-cols-3">
+                                    {
+                                        selectedSortAndFilteredProducts?.map(product => <Product key={product?._id} product={product}></Product>)
+                                    }
+                                </div> : <div className="flex flex-col items-center justify-center">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbzlnvmiwgJUYAN-yiAJRDBe2m0rAVa-gyA&s" alt="" />
+                                    <p className="my-4 text-2xl font-bold">Sorry No product Available</p>
+                                    <Link to={'/'} className="BTN">Back to Home</Link>
+                                </div>
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

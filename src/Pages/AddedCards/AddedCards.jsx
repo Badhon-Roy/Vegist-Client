@@ -19,7 +19,7 @@ const AddedCards = () => {
                 <div className="max-w-[1600px] mx-auto pl-10">
                     <div className="text-center">
                         <h2 className="text-[#7cc000] font-medium">Your Cart
-                            <br /> <span className="text-4xl font-mono font-bold">{user?.displayName}</span>
+                            <br /> <span className="font-mono text-4xl font-bold">{user?.displayName}</span>
                         </h2>
                         <p className="text-white">{user?.email}</p>
                     </div>
@@ -32,9 +32,9 @@ const AddedCards = () => {
                             addedCards?.map(addedCard => <AddedCard key={addedCard?._id} addedCard={addedCard}></AddedCard>)
                         }
                     </div> : <div>
-                        <p className="text-2xl text-center font-bold">You don't added any product</p>
+                        <p className="text-2xl font-bold text-center">You don't added any product</p>
                         <Link to={'/allOrganicProducts'} className="flex justify-center mt-4">
-                            <button className="BTN underline">Shop now</button>
+                            <button className="underline BTN">Shop now</button>
                         </Link>
                     </div>
                 }
