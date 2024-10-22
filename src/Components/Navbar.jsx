@@ -100,7 +100,7 @@ const Navbar = () => {
                             </button>
                         </form>
                     </div>
-                    <div className='flex-1 flex gap-8 font-bold'>
+                    <div className='flex flex-1 gap-8 font-bold'>
                         <NavLink
                             to="/"
                             className={({ isActive, isPending }) =>
@@ -108,6 +108,14 @@ const Navbar = () => {
                             }
                         >
                             Home
+                        </NavLink>
+                        <NavLink
+                            to="/shop"
+                            className={({ isActive, isPending }) =>
+                                `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                            }
+                        >
+                            Shop
                         </NavLink>
                         <NavLink
                             to="/about"
@@ -137,7 +145,7 @@ const Navbar = () => {
 
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full border-2">
+                                    <div className="w-10 border-2 rounded-full">
                                         <img
                                             alt={user?.displayName}
                                             src={user?.photoURL} />
@@ -176,10 +184,10 @@ const Navbar = () => {
 
                 </div>
             </div>
-            <div className="relative lg:hidden z-40">
+            <div className="relative z-40 lg:hidden">
                 <button
                     onClick={toggleDrawer}
-                    className="fixed top-4 right-4 z-40 p-2 bg-blue-600 text-white rounded-full"
+                    className="fixed z-40 p-2 text-white bg-blue-600 rounded-full top-4 right-4"
                 >
                     <MdOutlineMenu />
                 </button>
@@ -190,11 +198,11 @@ const Navbar = () => {
                 >
                     <button
                         onClick={toggleDrawer}
-                        className="absolute top-4 left-4 p-2 bg-red-600 text-white rounded-full"
+                        className="absolute p-2 text-white bg-red-600 rounded-full top-4 left-4"
                     >
                         <IoMdCloseCircleOutline />
                     </button>
-                    <nav className="mt-16 space-y-4 flex flex-col text-start px-4">
+                    <nav className="flex flex-col px-4 mt-16 space-y-4 text-start">
                         <NavLink
                             to="/"
                             onClick={handleNavClick}
@@ -203,6 +211,15 @@ const Navbar = () => {
                             }
                         >
                             Home
+                        </NavLink>
+                        <NavLink
+                            to="/shop"
+                            onClick={handleNavClick}
+                            className={({ isActive, isPending }) =>
+                                `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
+                            }
+                        >
+                            Shop
                         </NavLink>
                         <NavLink
                             to="/about"

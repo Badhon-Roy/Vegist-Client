@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const Product = ({ product }) => {
-    const {_id, name, image, price, rating, discount } = product;
+    const { _id, name, image, price, rating, discount } = product;
 
     const calculateTotalPriceWithoutDiscount = () => {
         const totalPrice = parseFloat(price);
@@ -16,7 +16,7 @@ const Product = ({ product }) => {
 
 
     return (
-        <Link to={`/productDetails/${_id}`} className="border-2 rounded-3xl hover:border-[#7cc000] hover:shadow-lg p-2" >
+        <Link to={`/productDetails/${_id}`} className="border-2 rounded-3xl hover:border-[#7cc000] hover:shadow-lg p-2 md:h-[380px] w-full" >
             <div className="relative">
                 <img className="md:h-[200px] h-[150px] w-full object-cover rounded-t-3xl" src={image} alt="" />
                 {
@@ -24,18 +24,18 @@ const Product = ({ product }) => {
                 }
             </div>
             <div className="p-4">
-                <div className="rating w-24 flex items-center">
-                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 1} />
-                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 2} />
-                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 3} />
-                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 4} />
-                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked={rating >= 5} />
+                <div className="flex items-center w-24 rating">
+                    <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 1} />
+                    <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 2} />
+                    <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 3} />
+                    <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 4} />
+                    <input type="radio" name="rating-2" className="bg-orange-400 mask mask-star-2" defaultChecked={rating >= 5} />
                     <p className="ml-2 text-sm">({rating})</p>
                 </div>
-                <h2 className="md:text-xl font-bold md:hidden">{name.slice(0,16)}..</h2>
-                <h2 className="md:text-xl font-bold md:block hidden">{name.slice(0,24)}..</h2>
-                <div className="flex justify-between items-center mt-2">
-                    <div className="flex gap-4 items-center font-medium">
+                <h2 className="font-bold md:text-xl md:hidden">{name.slice(0, 16)}..</h2>
+                <h2 className="hidden font-bold md:text-xl md:block">{name.slice(0, 24)}..</h2>
+                <div className="flex items-center justify-between mt-2">
+                    <div className="flex items-center gap-4 font-medium">
                         <p className="text-[#7cc000]">{calculateTotalPriceWithoutDiscount()} tk</p>
                         <del>{price} tk</del>
                     </div>

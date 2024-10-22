@@ -21,6 +21,7 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import AddedCards from "./Pages/AddedCards/AddedCards";
 import FavoriteCards from "./Pages/FavoriteCards/FavoriteCards";
 import Profile from "./Components/Profile";
+import Shop from "./Pages/Shop/Shop";
 // import LoadingPage from "./LoadingPage/LoadingPage";
 // import ErrorPage from "./ErrorPage/ErrorPage";
 
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path : "/profile",
         element : <Profile></Profile>
+      },
+      {
+        path : "/shop",
+        element : <Shop></Shop>
       }
     ]
   },
