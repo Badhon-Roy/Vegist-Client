@@ -91,7 +91,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path : "/dashboard",
+    path : "/dashboard/allProducts",
     element : <Dashboard/>,
     children : [
       {

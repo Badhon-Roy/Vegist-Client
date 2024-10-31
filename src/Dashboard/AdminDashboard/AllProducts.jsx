@@ -7,11 +7,42 @@ import axios from "axios";
 import { Bounce, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 
 const AllProducts = () => {
 
-    const { data: products , refetch } = useAllProducts();
+    const { data: products, refetch } = useAllProducts();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage, setProductsPerPage] = useState(15);
+
+    const totalPages = Math.ceil((products?.length || 0) / productsPerPage);
+
+    // Slice the products based on the current page and products per page
+    const displayedProducts = products?.slice(
+        (currentPage - 1) * productsPerPage,
+        currentPage * productsPerPage
+    );
+
+    const handlePageClick = (page) => {
+        setCurrentPage(page);
+    };
+
+    const handlePreviousPage = () => {
+        setCurrentPage((prev) => Math.max(prev - 1, 1));
+    };
+
+    const handleNextPage = () => {
+        setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+    };
+
+    const handleProductsPerPageChange = (event) => {
+        setProductsPerPage(Number(event.target.value));
+        setCurrentPage(1);
+    };
+
+
+
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const colors = [
@@ -71,6 +102,7 @@ const AllProducts = () => {
                         });
 
                         reset();
+                        refetch();
                     }
                 })
                 .catch(function (error) {
@@ -127,13 +159,6 @@ const AllProducts = () => {
             }
         });
     };
-    
-    
-    
-
-
-
-
 
 
     const handleModalClose = () => {
@@ -355,13 +380,26 @@ const AllProducts = () => {
                     />
                 </div>
                 <div className="flex gap-4">
-                    <select onChange={handleCategoryFIlter} className="select w-[160px]">
+
+                    <select
+                        value={productsPerPage}
+                        onChange={(e) => handleProductsPerPageChange(e)}
+                        className="w-[180px] cursor-pointer px-4 py-2 rounded-lg border border-gray-300 shadow-md text-gray-700 bg-white hover:bg-gray-100 hover:border-[#7cc000] focus:outline-none focus:ring-2 focus:ring-[#7cc000] focus:border-transparent transition duration-200"
+                    >  <option value="15" >Product Per Page</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <select onChange={handleCategoryFIlter} className="w-[180px] cursor-pointer px-4 py-2 rounded-lg border border-gray-300 shadow-md text-gray-700 bg-white hover:bg-gray-100 hover:border-[#7cc000] focus:outline-none focus:ring-2 focus:ring-[#7cc000] focus:border-transparent transition duration-200">
                         <option value="all">All Categories</option>
                         {Array.from(new Set(products?.map(product => product.category)))?.map(category => (
                             <option key={category} value={category}>{category}</option>
                         ))}
                     </select>
-                    <select className="select w-[160px]">
+                    <select className="w-[180px] cursor-pointer px-4 py-2 rounded-lg border border-gray-300 shadow-md text-gray-700 bg-white hover:bg-gray-100 hover:border-[#7cc000] focus:outline-none focus:ring-2 focus:ring-[#7cc000] focus:border-transparent transition duration-200">
                         <option value="last-added">Last added</option>
                         <option value="price-asc">Price: Low to High</option>
                         <option value="price-desc">Price: High to Low</option>
@@ -369,77 +407,102 @@ const AllProducts = () => {
                 </div>
             </div>
 
-            <div className="grid gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                {products?.map((product) => (
-                    <div key={product.id} className="border border-gray-300 rounded-lg shadow-lg">
-                        <figure>
-                            <img
-                                className="h-[150px] object-center w-full object-cover rounded-t-lg"
-                                src={product?.image}
-                                alt={product.name}
-                            />
-                        </figure>
-                        <div className="p-4 border-t">
-                            <h2 className="card-title">{product.name.slice(0, 20)}</h2>
-                            <p className="flex justify-between my-2 text-xl">
-                                <span className="mr-2 text-gray-500 line-through">{product.price.toFixed(2)} tk</span>
-                                <span className="font-bold text-green-600">
-                                    {(product.price - product.price * (product.discount / 100)).toFixed(2)} tk
-                                </span>
-                            </p>
-                            <div className="flex justify-between">
-                                <span className={`badge bg-[#7cc000] text-white`}>{product.category}</span>
-                                <div className="flex items-center">
-                                    <FaStar className="h-5 w-5 fill-[#7cc000] text-[#7cc000] font-bold" />
-                                    <span className="ml-1 text-sm">{product.rating}</span>
+            <div>
+                {/* Product Grid */}
+                <div className="grid gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                    {displayedProducts?.map((product) => (
+                        <div key={product.id} className="border border-gray-300 rounded-lg shadow-lg">
+                            <figure>
+                                <img
+                                    className="h-[150px] object-center w-full object-cover rounded-t-lg"
+                                    src={product?.image}
+                                    alt={product.name}
+                                />
+                            </figure>
+                            <div className="p-4 border-t">
+                                <h2 className="card-title">{product.name.slice(0, 20)}</h2>
+                                <p className="flex justify-between my-2 text-xl">
+                                    <span className="mr-2 text-gray-500 line-through">{product.price.toFixed(2)} tk</span>
+                                    <span className="font-bold text-green-600">
+                                        {(product.price - product.price * (product.discount / 100)).toFixed(2)} tk
+                                    </span>
+                                </p>
+                                <div className="flex justify-between">
+                                    <span className={`badge bg-[#7cc000] text-white`}>{product.category}</span>
+                                    <div className="flex items-center">
+                                        <FaStar className="h-5 w-5 fill-[#7cc000] text-[#7cc000] font-bold" />
+                                        <span className="ml-1 text-sm">{product.rating}</span>
+                                    </div>
+                                </div>
+                                <p className="flex items-center my-4 text-sm font-semibold">
+                                    Stock:
+                                    {
+                                        product?.quantity > 0 ? (
+                                            <span className="ml-1 text-green-600 bg-green-100 px-2 py-0.5 rounded">
+                                                In Stock ({product.quantity})
+                                            </span>
+                                        ) : (
+                                            <span className="ml-1 text-red-600 bg-red-100 px-2 py-0.5 rounded">
+                                                Out of Stock
+                                            </span>
+                                        )
+                                    }
+                                </p>
+
+                                <div className="flex gap-2 mt-4">
+                                    {/* Open the modal using document.getElementById('ID').showModal() method */}
+                                    <button className="flex-1 btn btn-outline border-[#7cc000] text-[#7cc000] hover:bg-[#7cc000] hover:text-white" onClick={() => document.getElementById('my_modal_5').showModal()}>Update</button>
+                                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                                        <div className="modal-box">
+                                            <h3 className="text-lg font-bold">Hello!</h3>
+                                            <p className="py-4">Press ESC key or click the button below to close</p>
+                                            <div className="modal-action">
+                                                <form method="dialog">
+                                                    {/* if there is a button in form, it will close the modal */}
+                                                    <button className="btn">Close</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </dialog>
+
+                                    <button onClick={() => handleDeleteProduct(product._id)} className="flex-1 btn btn-outline border-[#c00000] text-[#c00000] hover:bg-[#c00000] hover:text-white">
+                                        Delete
+                                    </button>
                                 </div>
                             </div>
-                            <p className="flex items-center my-4 text-sm font-semibold">
-                                Stock:
-                                {
-                                    product?.quantity > 0 ? (
-                                        <span className="ml-1 text-green-600 bg-green-100 px-2 py-0.5 rounded">
-                                            In Stock ({product.quantity})
-                                        </span>
-                                    ) : (
-                                        <span className="ml-1 text-red-600 bg-red-100 px-2 py-0.5 rounded">
-                                            Out of Stock
-                                        </span>
-                                    )
-                                }
-                            </p>
-
-                            <div className="flex gap-2 mt-4">
-                                {/* Open the modal using document.getElementById('ID').showModal() method */}
-                                <button className="flex-1 btn btn-outline border-[#7cc000] text-[#7cc000] hover:bg-[#7cc000] hover:text-white" onClick={() => document.getElementById('my_modal_5').showModal()}>Update</button>
-                                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                                    <div className="modal-box">
-                                        <h3 className="text-lg font-bold">Hello!</h3>
-                                        <p className="py-4">Press ESC key or click the button below to close</p>
-                                        <div className="modal-action">
-                                            <form method="dialog">
-                                                {/* if there is a button in form, it will close the modal */}
-                                                <button className="btn">Close</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </dialog>
-
-                                <button onClick={() => handleDeleteProduct(product._id)} className="flex-1 btn btn-outline border-[#c00000] text-[#c00000] hover:bg-[#c00000] hover:text-white">
-                                    Delete
-                                </button>
-                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
 
-            <div className="flex items-center justify-center gap-2 mt-6">
-                <button className="btn btn-outline">Previous</button>
-                <button className="btn bg-[#7cc000] text-white">1</button>
-                <button className="btn btn-outline">2</button>
-                <button className="btn btn-outline">3</button>
-                <button className="btn btn-outline">Next</button>
+                {/* Pagination Controls */}
+                <div className="flex items-center justify-center gap-2 mt-6">
+                    <button
+                        onClick={handlePreviousPage}
+                        disabled={currentPage === 1}
+                        className="btn btn-outline"
+                    >
+                        Previous
+                    </button>
+
+                    {/* Dynamic Page Numbers */}
+                    {[...Array(totalPages)]?.map((_, index) => (
+                        <button
+                            key={index + 1}
+                            onClick={() => handlePageClick(index + 1)}
+                            className={`btn ${currentPage === index + 1 ? 'bg-[#7cc000] text-white' : 'btn-outline'}`}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+
+                    <button
+                        onClick={handleNextPage}
+                        disabled={currentPage === totalPages}
+                        className="btn btn-outline"
+                    >
+                        Next
+                    </button>
+                </div>
             </div>
         </>
     );

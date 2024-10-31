@@ -126,7 +126,7 @@ const Navbar = () => {
                             About
                         </NavLink>
                         <NavLink
-                            to="/dashboard"
+                            to="/dashboard/allProducts"
                             className={({ isActive, isPending }) =>
                                 `underline-animation ${isActive ? "text-[#7cc000] font-bold" : isPending ? "pending" : ""}`
                             }
