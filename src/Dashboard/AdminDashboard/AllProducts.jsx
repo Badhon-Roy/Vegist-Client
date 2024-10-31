@@ -5,10 +5,13 @@ import { FaStar } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { Bounce, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import Swal from "sweetalert2";
+
 
 const AllProducts = () => {
 
-    const { data: products } = useAllProducts();
+    const { data: products , refetch } = useAllProducts();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const colors = [
@@ -19,7 +22,6 @@ const AllProducts = () => {
     ];
 
     const onSubmit = async (data) => {
-
         try {
             data.rating = parseFloat(data.rating);
             data.price = parseFloat(data.price);
@@ -43,21 +45,21 @@ const AllProducts = () => {
                     fat: data.fat,
                     fiber: data.fiber
                 },
-                
+
                 storage: data.storage,
                 shelf_life: data.shelf_life,
                 color: data.color,
                 quantity: data.quantity,
                 weight: data.weight,
                 isNew: data.isNew,
-                isOrganicProduct : data.isOrganicProduct
+                isOrganicProduct: data.isOrganicProduct
             };
 
             axios.post('http://localhost:5000/products', productInfo)
                 .then(res => {
                     if (res.data.insertedId) {
                         toast.success('Added Product successfully!', {
-                            position: "top-center",
+                            position: "top-right",
                             autoClose: 1500,
                             hideProgressBar: false,
                             closeOnClick: true,
@@ -79,6 +81,55 @@ const AllProducts = () => {
             console.error('Error adding product:', error);
         }
     };
+
+    const handleDeleteProduct = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/products/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount) {
+                            toast.success('Deleted Product successfully!', {
+                                position: "top-center",
+                                autoClose: 1500,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "light",
+                                transition: Bounce,
+                            });
+                            refetch(); // Refresh the product list
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        toast.error('Failed to delete product!', {
+                            position: "top-center",
+                            autoClose: 1500,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            transition: Bounce,
+                        });
+                    });
+            }
+        });
+    };
+    
+    
+    
 
 
 
@@ -374,7 +425,7 @@ const AllProducts = () => {
                                     </div>
                                 </dialog>
 
-                                <button className="flex-1 btn btn-outline border-[#c00000] text-[#c00000] hover:bg-[#c00000] hover:text-white">
+                                <button onClick={() => handleDeleteProduct(product._id)} className="flex-1 btn btn-outline border-[#c00000] text-[#c00000] hover:bg-[#c00000] hover:text-white">
                                     Delete
                                 </button>
                             </div>

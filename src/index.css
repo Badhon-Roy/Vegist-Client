@@ -2,42 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-body{
-    font-family: "Roboto", sans-serif;
+
+body {
+  font-family: "Roboto", sans-serif;
 }
-.BTN{
-    background: #7cc000;
-    padding: 15px 50px;
-    border-radius: 30px;
-    color: white;
-    font-size: 18px;
+
+.BTN {
+  background: #7cc000;
+  padding: 15px 50px;
+  border-radius: 30px;
+  color: white;
+  font-size: 18px;
 
 }
-.BTN:hover{
+
+.BTN:hover {
   background: #f5ab1e;
 }
 
 @layer components {
-    .underline-animation {
-      position: relative;
-      display: inline-block;
-    }
-  
-    .underline-animation::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      transform: scaleX(0);
-      height: 2px;
-      bottom: -1px; /* Adjust the position as needed */
-      left: 0;
-      background-color: #7cc000; /* Match the color to your active state */
-      transform-origin: bottom right;
-      transition: transform 0.25s ease-out;
-    }
-  
-    .underline-animation:hover::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
+  .underline-animation {
+    position: relative;
+    display: inline-block;
   }
+
+  .underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -1px;
+    /* Adjust the position as needed */
+    left: 0;
+    background-color: #7cc000;
+    /* Match the color to your active state */
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
