@@ -3,18 +3,18 @@ import axios from "axios";
 
 
 const useAllProducts = () => {
-    const { data , isLoading } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
-            const res = await axios.get('https://vegist-server-one.vercel.app/products')
+            const res = await axios.get('http://localhost:5000/products')
             return res.data;
         }
     })
-    if(isLoading){
+    if (isLoading) {
         return <p>Loading........</p>
     }
 
-    return {data}; 
+    return { data, isLoading };
 };
 
 export default useAllProducts;

@@ -22,6 +22,10 @@ import AddedCards from "./Pages/AddedCards/AddedCards";
 import FavoriteCards from "./Pages/FavoriteCards/FavoriteCards";
 import Profile from "./Components/Profile";
 import Shop from "./Pages/Shop/Shop";
+import Dashboard from "./Layout/Dashboard";
+import AllProducts from "./Dashboard/AdminDashboard/AllProducts";
+// import Dashboard from "./Layout/Dashboard";
+// import AllProducts from "./Dashboard/AdminDashboard/AllProducts";
 // import LoadingPage from "./LoadingPage/LoadingPage";
 // import ErrorPage from "./ErrorPage/ErrorPage";
 
@@ -86,6 +90,16 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path : "/dashboard",
+    element : <Dashboard/>,
+    children : [
+      {
+        path : "/dashboard/allProducts",
+        element : <AllProducts></AllProducts>
+      }
+    ]
+  }
 ]);
 
 const queryClient = new QueryClient()

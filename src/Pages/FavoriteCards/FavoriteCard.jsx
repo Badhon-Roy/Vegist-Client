@@ -16,7 +16,7 @@ const FavoriteCard = ({favoriteCard}) => {
     };
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`https://vegist-server-one.vercel.app/favorite/${_id}`)
+            const res = await axios.delete(`http://localhost:5000/favorite/${_id}`)
             console.log(res.data);
             if (res.data.deletedCount) {
                 toast.success('👦🏻 Delete successfully!', {

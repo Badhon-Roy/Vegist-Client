@@ -7,7 +7,7 @@ const CherryJuices = () => {
     const { data: cherryJuices } = useQuery({
         queryKey: "Cherry Juice",
         queryFn: async () => {
-            const res = await axios.get(`https://vegist-server-one.vercel.app/categories/Cherry Juice`)
+            const res = await axios.get(`http://localhost:5000/categories/Cherry Juice`)
             return res.data;
         }
     })

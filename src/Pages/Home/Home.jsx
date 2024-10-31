@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
 
     return (
+        // http://localhost:5000
         <div>
             <Helmet>
                 <title>Vegist || Home</title>

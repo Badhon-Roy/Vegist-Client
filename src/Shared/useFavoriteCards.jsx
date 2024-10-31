@@ -9,7 +9,7 @@ const useFavoriteCards = () => {
         queryKey : ["favorite" , user?.email],
         queryFn : async ()=>{
             if(!user?.email) return [];
-            const res = await axios.get(`https://vegist-server-one.vercel.app/favorite?email=${user?.email}`)
+            const res = await axios.get(`http://localhost:5000/favorite?email=${user?.email}`)
             return res.data;
         },
         enabled : !!user?.email

@@ -5,7 +5,6 @@ import Product from "../Home/Product";
 
 const Shop = () => {
     const { data: products } = useAllProducts();
-    console.log(products);
     const [selectedPriceCheckBox, setSelectedPriceCheckBox] = useState(null)
     const [sortOrder, setSortOrder] = useState(null);
     const [sortByRating, setSortByRating] = useState(false)
