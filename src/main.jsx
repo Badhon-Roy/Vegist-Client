@@ -24,6 +24,7 @@ import Profile from "./Components/Profile";
 import Shop from "./Pages/Shop/Shop";
 import Dashboard from "./Layout/Dashboard";
 import AllProducts from "./Dashboard/AdminDashboard/AllProducts";
+import Orders from "./Dashboard/AdminDashboard/Orders";
 // import Dashboard from "./Layout/Dashboard";
 // import AllProducts from "./Dashboard/AdminDashboard/AllProducts";
 // import LoadingPage from "./LoadingPage/LoadingPage";
@@ -91,12 +92,16 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path : "/dashboard/allProducts",
+    path : "/dashboard",
     element : <Dashboard/>,
     children : [
       {
         path : "/dashboard/allProducts",
         element : <AllProducts></AllProducts>
+      },
+      {
+        path : "/dashboard/orders",
+        element : <Orders></Orders>
       }
     ]
   }
